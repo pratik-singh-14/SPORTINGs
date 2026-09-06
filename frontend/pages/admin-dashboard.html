@@ -1,0 +1,2981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard | SPORTING</title>
+
+    <meta
+        name="description"
+        content="SPORTING administration dashboard."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/admin.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           SPORTING ADMIN DASHBOARD
+        ===================================================== */
+
+        :root {
+            --sporting-green: #b7ff3c;
+            --sporting-bg: #07110d;
+            --sporting-card: #101f19;
+            --sporting-card-2: #13261f;
+            --sporting-border: rgba(183,255,60,.14);
+            --sporting-muted: #9baaa2;
+            --sporting-white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(183,255,60,.045),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(183,255,60,.035),
+                    transparent 30%
+                ),
+                var(--sporting-bg);
+
+            color: var(--sporting-white);
+        }
+
+        /* =====================================================
+           BACKGROUND GRID
+        ===================================================== */
+
+        .dashboard-bg {
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .25;
+
+            background-image:
+                linear-gradient(
+                    rgba(183,255,60,.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(183,255,60,.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 50px 50px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+        }
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .admin-topbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+
+            border-bottom:
+                1px solid
+                var(--sporting-border);
+
+            background:
+                rgba(7,17,13,.92);
+
+            backdrop-filter: blur(18px);
+        }
+
+        .admin-topbar-inner {
+            width: min(96%, 1500px);
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .admin-brand {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+        }
+
+        .admin-brand-mark {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            background:
+                var(--sporting-green);
+
+            color:
+                var(--sporting-bg);
+
+            font-family:
+                "Barlow Condensed",
+                sans-serif;
+
+            font-size: 25px;
+            font-weight: 900;
+
+            clip-path:
+                polygon(
+                    25% 6%,
+                    75% 6%,
+                    100% 50%,
+                    75% 94%,
+                    25% 94%,
+                    0 50%
+                );
+        }
+
+        .admin-brand-text {
+            font-family:
+                "Barlow Condensed",
+                sans-serif;
+
+            font-size: 28px;
+            font-weight: 900;
+
+            letter-spacing: 1px;
+        }
+
+        .admin-brand-text span {
+            color:
+                var(--sporting-green);
+        }
+
+        .admin-header-center {
+            color:
+                var(--sporting-muted);
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .admin-user-area {
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+        }
+
+        .admin-user-info {
+            text-align: right;
+        }
+
+        .admin-user-name {
+            display: block;
+
+            color:
+                var(--sporting-white);
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .admin-user-role {
+            display: block;
+
+            margin-top: 3px;
+
+            color:
+                var(--sporting-green);
+
+            font-size: 9px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .admin-avatar {
+            width: 39px;
+            height: 39px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid
+                rgba(183,255,60,.3);
+
+            border-radius: 50%;
+
+            background:
+                rgba(183,255,60,.08);
+
+            color:
+                var(--sporting-green);
+
+            font-weight: 900;
+        }
+
+        .logout-btn {
+            height: 38px;
+
+            padding: 0 15px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.1);
+
+            border-radius: 7px;
+
+            background:
+                rgba(255,255,255,.03);
+
+            color:
+                #c6d0cb;
+
+            cursor: pointer;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            transition:
+                .25s ease;
+        }
+
+        .logout-btn:hover {
+            border-color:
+                rgba(255,114,114,.3);
+
+            color:
+                #ff8d8d;
+
+            background:
+                rgba(255,114,114,.05);
+        }
+
+        /* =====================================================
+           LAYOUT
+        ===================================================== */
+
+        .admin-layout {
+            position: relative;
+            z-index: 2;
+
+            width: min(96%, 1500px);
+
+            margin: 0 auto;
+
+            padding:
+                28px 0 50px;
+
+            display: grid;
+
+            grid-template-columns:
+                230px
+                1fr;
+
+            gap: 25px;
+        }
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
+        .admin-sidebar {
+            position: sticky;
+            top: 95px;
+
+            align-self: start;
+
+            padding: 17px;
+
+            border:
+                1px solid
+                var(--sporting-border);
+
+            border-radius: 14px;
+
+            background:
+                rgba(16,31,25,.82);
+        }
+
+        .sidebar-title {
+            padding:
+                5px 10px 14px;
+
+            color:
+                #627169;
+
+            font-size: 9px;
+            font-weight: 900;
+
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .sidebar-nav {
+            display: grid;
+            gap: 5px;
+        }
+
+        .sidebar-link {
+            width: 100%;
+
+            min-height: 43px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 11px;
+
+            padding:
+                0 12px;
+
+            border:
+                1px solid
+                transparent;
+
+            border-radius: 8px;
+
+            background:
+                transparent;
+
+            color:
+                #93a19a;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            transition:
+                .2s ease;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            border-color:
+                rgba(183,255,60,.13);
+
+            background:
+                rgba(183,255,60,.07);
+
+            color:
+                var(--sporting-green);
+        }
+
+        .sidebar-icon {
+            width: 22px;
+
+            text-align: center;
+
+            font-size: 15px;
+        }
+
+        .sidebar-count {
+            margin-left: auto;
+
+            min-width: 20px;
+
+            padding: 3px 6px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(183,255,60,.08);
+
+            color:
+                var(--sporting-green);
+
+            font-size: 9px;
+
+            text-align: center;
+        }
+
+        .sidebar-divider {
+            height: 1px;
+
+            margin:
+                14px 5px;
+
+            background:
+                rgba(255,255,255,.06);
+        }
+
+        .sidebar-site-link {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            padding:
+                11px 12px;
+
+            color:
+                #738078;
+
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .sidebar-site-link:hover {
+            color:
+                var(--sporting-green);
+        }
+
+        /* =====================================================
+           MAIN CONTENT
+        ===================================================== */
+
+        .dashboard-main {
+            min-width: 0;
+        }
+
+        .dashboard-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+        }
+
+        .dashboard-heading h1 {
+            margin: 0;
+
+            font-family:
+                "Barlow Condensed",
+                sans-serif;
+
+            font-size: 48px;
+            line-height: .9;
+
+            text-transform: uppercase;
+        }
+
+        .dashboard-heading h1 span {
+            color:
+                var(--sporting-green);
+        }
+
+        .dashboard-heading p {
+            margin-top: 9px;
+
+            color:
+                var(--sporting-muted);
+
+            font-size: 11px;
+        }
+
+        .dashboard-time {
+            padding:
+                10px 13px;
+
+            border:
+                1px solid
+                rgba(183,255,60,.1);
+
+            border-radius: 7px;
+
+            background:
+                rgba(183,255,60,.04);
+
+            color:
+                #9daa9f;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+        /* =====================================================
+           STATS
+        ===================================================== */
+
+        .stats-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(6, 1fr);
+
+            gap: 12px;
+
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            position: relative;
+
+            min-height: 118px;
+
+            padding: 18px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--sporting-border);
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(19,38,31,.9),
+                    rgba(10,24,18,.9)
+                );
+        }
+
+        .stat-card::after {
+            content: "";
+
+            position: absolute;
+
+            right: -25px;
+            bottom: -35px;
+
+            width: 100px;
+            height: 100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(183,255,60,.04);
+        }
+
+        .stat-icon {
+            font-size: 18px;
+
+            margin-bottom: 10px;
+        }
+
+        .stat-number {
+            display: block;
+
+            font-family:
+                "Barlow Condensed",
+                sans-serif;
+
+            font-size: 31px;
+            font-weight: 800;
+
+            line-height: 1;
+        }
+
+        .stat-label {
+            display: block;
+
+            margin-top: 5px;
+
+            color:
+                #7e8c85;
+
+            font-size: 9px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: .7px;
+        }
+
+        .stat-card.highlight {
+            border-color:
+                rgba(183,255,60,.28);
+        }
+
+        .stat-card.highlight .stat-number {
+            color:
+                var(--sporting-green);
+        }
+
+        /* =====================================================
+           PANEL
+        ===================================================== */
+
+        .dashboard-panel {
+            margin-bottom: 20px;
+
+            border:
+                1px solid
+                var(--sporting-border);
+
+            border-radius: 13px;
+
+            background:
+                rgba(16,31,25,.8);
+
+            overflow: hidden;
+        }
+
+        .panel-header {
+            min-height: 62px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding:
+                0 19px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.055);
+        }
+
+        .panel-title {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .panel-title h2 {
+            margin: 0;
+
+            font-family:
+                "Barlow Condensed",
+                sans-serif;
+
+            font-size: 24px;
+
+            text-transform: uppercase;
+        }
+
+        .panel-title h2 span {
+            color:
+                var(--sporting-green);
+        }
+
+        .panel-subtitle {
+            color:
+                #6f7d76;
+
+            font-size: 9px;
+        }
+
+        .panel-actions {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+        }
+
+        .panel-btn {
+            min-height: 34px;
+
+            padding:
+                0 12px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            border-radius: 6px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            color:
+                #9ba7a1;
+
+            cursor: pointer;
+
+            font-size: 9px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            transition:
+                .2s ease;
+        }
+
+        .panel-btn:hover {
+            border-color:
+                rgba(183,255,60,.25);
+
+            color:
+                var(--sporting-green);
+        }
+
+        .panel-btn.primary {
+            border-color:
+                rgba(183,255,60,.25);
+
+            background:
+                rgba(183,255,60,.08);
+
+            color:
+                var(--sporting-green);
+        }
+
+        /* =====================================================
+           FILTER BAR
+        ===================================================== */
+
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            padding: 14px 18px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.045);
+        }
+
+        .filter-input,
+        .filter-select {
+            height: 38px;
+
+            min-width: 150px;
+
+            padding:
+                0 11px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            border-radius: 6px;
+
+            outline: none;
+
+            background:
+                #13251e;
+
+            color:
+                #d7dfda;
+
+            font-size: 10px;
+        }
+
+        .filter-input {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .filter-input::placeholder {
+            color:
+                #617068;
+        }
+
+        .filter-input:focus,
+        .filter-select:focus {
+            border-color:
+                rgba(183,255,60,.3);
+        }
+
+        .filter-select option {
+            background:
+                #102019;
+
+            color:
+                #fff;
+        }
+
+        /* =====================================================
+           TABLE
+        ===================================================== */
+
+        .table-wrapper {
+            width: 100%;
+
+            overflow-x: auto;
+        }
+
+        .admin-table {
+            width: 100%;
+
+            min-width: 850px;
+
+            border-collapse: collapse;
+        }
+
+        .admin-table th {
+            padding:
+                12px 15px;
+
+            color:
+                #64736b;
+
+            background:
+                rgba(255,255,255,.015);
+
+            font-size: 8px;
+            font-weight: 900;
+
+            text-align: left;
+
+            text-transform: uppercase;
+            letter-spacing: .8px;
+
+            white-space: nowrap;
+        }
+
+        .admin-table td {
+            padding:
+                14px 15px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.045);
+
+            color:
+                #aab5af;
+
+            font-size: 10px;
+
+            vertical-align: middle;
+        }
+
+        .admin-table tbody tr {
+            transition:
+                background .2s ease;
+        }
+
+        .admin-table tbody tr:hover {
+            background:
+                rgba(183,255,60,.025);
+        }
+
+        .record-name {
+            color:
+                #e6ece9;
+
+            font-weight: 800;
+        }
+
+        .record-secondary {
+            display: block;
+
+            margin-top: 3px;
+
+            color:
+                #66746d;
+
+            font-size: 8px;
+        }
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 5px;
+
+            padding:
+                5px 8px;
+
+            border-radius: 20px;
+
+            font-size: 8px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: .4px;
+        }
+
+        .status-badge::before {
+            content: "";
+
+            width: 5px;
+            height: 5px;
+
+            border-radius: 50%;
+
+            background: currentColor;
+        }
+
+        .status-pending {
+            color: #f3c969;
+            background: rgba(243,201,105,.08);
+        }
+
+        .status-approved,
+        .status-confirmed,
+        .status-active {
+            color: var(--sporting-green);
+            background: rgba(183,255,60,.08);
+        }
+
+        .status-rejected,
+        .status-cancelled {
+            color: #ff8585;
+            background: rgba(255,133,133,.08);
+        }
+
+        .status-completed {
+            color: #7dc8ff;
+            background: rgba(125,200,255,.08);
+        }
+
+        /* =====================================================
+           ACTION BUTTONS
+        ===================================================== */
+
+        .action-group {
+            display: flex;
+            align-items: center;
+
+            gap: 5px;
+        }
+
+        .action-btn {
+            width: 29px;
+            height: 29px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            border-radius: 5px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            color:
+                #89968f;
+
+            cursor: pointer;
+
+            transition:
+                .2s ease;
+        }
+
+        .action-btn:hover {
+            border-color:
+                rgba(183,255,60,.25);
+
+            color:
+                var(--sporting-green);
+
+            background:
+                rgba(183,255,60,.06);
+        }
+
+        .action-btn.delete:hover {
+            border-color:
+                rgba(255,100,100,.3);
+
+            color:
+                #ff8888;
+
+            background:
+                rgba(255,100,100,.06);
+        }
+
+        /* =====================================================
+           EMPTY / LOADING
+        ===================================================== */
+
+        .dashboard-empty {
+            padding:
+                45px 20px;
+
+            text-align: center;
+
+            color:
+                #69766f;
+
+            font-size: 11px;
+        }
+
+        .dashboard-empty strong {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color:
+                #9aa69f;
+
+            font-size: 14px;
+        }
+
+        .dashboard-loading {
+            padding:
+                40px 20px;
+
+            text-align: center;
+
+            color:
+                #76837c;
+
+            font-size: 10px;
+        }
+
+        .loading-spinner {
+            width: 25px;
+            height: 25px;
+
+            margin:
+                0 auto 12px;
+
+            border:
+                2px solid
+                rgba(183,255,60,.15);
+
+            border-top-color:
+                var(--sporting-green);
+
+            border-radius: 50%;
+
+            animation:
+                dashboardSpin .7s linear infinite;
+        }
+
+        @keyframes dashboardSpin {
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        /* =====================================================
+           QUICK ACTIONS
+        ===================================================== */
+
+        .quick-actions {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 10px;
+
+            padding: 17px;
+        }
+
+        .quick-action {
+            min-height: 85px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding:
+                15px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            border-radius: 9px;
+
+            background:
+                rgba(255,255,255,.018);
+
+            color:
+                #9aa69f;
+
+            cursor: pointer;
+
+            transition:
+                .2s ease;
+        }
+
+        .quick-action:hover {
+            transform:
+                translateY(-2px);
+
+            border-color:
+                rgba(183,255,60,.22);
+
+            background:
+                rgba(183,255,60,.045);
+
+            color:
+                var(--sporting-green);
+        }
+
+        .quick-action-icon {
+            margin-bottom: 9px;
+
+            font-size: 18px;
+        }
+
+        .quick-action-title {
+            font-size: 10px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+        }
+
+        .quick-action-text {
+            margin-top: 4px;
+
+            color:
+                #5e6c65;
+
+            font-size: 8px;
+        }
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+
+        .admin-modal {
+            position: fixed;
+            inset: 0;
+
+            z-index: 5000;
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(0,0,0,.72);
+
+            backdrop-filter:
+                blur(7px);
+        }
+
+        .admin-modal.show {
+            display: flex;
+        }
+
+        .modal-card {
+            width: min(700px, 100%);
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            border:
+                1px solid
+                rgba(183,255,60,.18);
+
+            border-radius: 15px;
+
+            background:
+                #0d1c16;
+
+            box-shadow:
+                0 30px 100px
+                rgba(0,0,0,.6);
+        }
+
+        .modal-header {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+
+            min-height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding:
+                0 18px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.06);
+
+            background:
+                #0d1c16;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+
+            font-family:
+                "Barlow Condensed",
+                sans-serif;
+
+            font-size: 23px;
+
+            text-transform: uppercase;
+        }
+
+        .modal-close {
+            width: 32px;
+            height: 32px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            border-radius: 6px;
+
+            background:
+                rgba(255,255,255,.03);
+
+            color:
+                #8b9790;
+
+            cursor: pointer;
+
+            font-size: 16px;
+        }
+
+        .modal-close:hover {
+            color:
+                #ff8a8a;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .detail-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px;
+        }
+
+        .detail-item {
+            padding:
+                12px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.055);
+
+            border-radius: 7px;
+
+            background:
+                rgba(255,255,255,.018);
+        }
+
+        .detail-item.full {
+            grid-column:
+                1 / -1;
+        }
+
+        .detail-label {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color:
+                #63716a;
+
+            font-size: 8px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: .7px;
+        }
+
+        .detail-value {
+            color:
+                #d1dad5;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+            word-break: break-word;
+        }
+
+        /* =====================================================
+           TOAST
+        ===================================================== */
+
+        .admin-toast {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            z-index: 6000;
+
+            max-width: 360px;
+
+            padding:
+                13px 16px;
+
+            border:
+                1px solid
+                rgba(183,255,60,.2);
+
+            border-radius: 8px;
+
+            background:
+                #10231a;
+
+            color:
+                var(--sporting-green);
+
+            box-shadow:
+                0 15px 45px
+                rgba(0,0,0,.35);
+
+            font-size: 10px;
+            font-weight: 700;
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            pointer-events: none;
+
+            transition:
+                .25s ease;
+        }
+
+        .admin-toast.show {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 1200px) {
+
+            .stats-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+        @media (max-width: 1000px) {
+
+            .admin-layout {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .admin-sidebar {
+                position: static;
+            }
+
+            .sidebar-nav {
+                grid-template-columns:
+                    repeat(4, 1fr);
+            }
+
+            .sidebar-divider,
+            .sidebar-site-link,
+            .sidebar-title {
+                display: none;
+            }
+
+        }
+
+        @media (max-width: 750px) {
+
+            .admin-header-center {
+                display: none;
+            }
+
+            .admin-user-info {
+                display: none;
+            }
+
+            .admin-layout {
+                width: 94%;
+
+                padding-top: 18px;
+            }
+
+            .sidebar-nav {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .dashboard-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .dashboard-time {
+                width: 100%;
+            }
+
+            .quick-actions {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .detail-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .detail-item.full {
+                grid-column: auto;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .admin-brand-text {
+                font-size: 23px;
+            }
+
+            .admin-brand-mark {
+                width: 36px;
+                height: 36px;
+
+                font-size: 21px;
+            }
+
+            .logout-btn {
+                padding: 0 9px;
+
+                font-size: 8px;
+            }
+
+            .dashboard-heading h1 {
+                font-size: 40px;
+            }
+
+            .stats-grid {
+                gap: 8px;
+            }
+
+            .stat-card {
+                min-height: 105px;
+
+                padding: 13px;
+            }
+
+            .stat-number {
+                font-size: 27px;
+            }
+
+            .filter-input {
+                min-width: 100%;
+            }
+
+            .filter-select {
+                flex: 1;
+                min-width: 120px;
+            }
+
+            .quick-actions {
+                padding: 10px;
+                gap: 7px;
+            }
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    .01ms !important;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard-bg"></div>
+
+
+    <!-- =====================================================
+         ADMIN HEADER
+    ===================================================== -->
+
+    <header class="admin-topbar">
+
+        <div class="admin-topbar-inner">
+
+            <a
+                href="../../index.html"
+                class="admin-brand"
+            >
+
+                <span class="admin-brand-mark">
+                    S
+                </span>
+
+                <span class="admin-brand-text">
+                    SPORT<span>ING</span>
+                </span>
+
+            </a>
+
+
+            <div class="admin-header-center">
+                Administration Control Center
+            </div>
+
+
+            <div class="admin-user-area">
+
+                <div class="admin-user-info">
+
+                    <span
+                        class="admin-user-name"
+                        id="adminUserName"
+                    >
+                        SPORTING Admin
+                    </span>
+
+                    <span
+                        class="admin-user-role"
+                        id="adminUserRole"
+                    >
+                        Administrator
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="admin-avatar"
+                    id="adminAvatar"
+                >
+                    S
+                </div>
+
+
+                <button
+                    type="button"
+                    class="logout-btn"
+                    id="logoutBtn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         DASHBOARD LAYOUT
+    ===================================================== -->
+
+    <div class="admin-layout">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================= -->
+
+        <aside class="admin-sidebar">
+
+            <div class="sidebar-title">
+                Management
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+
+                <button
+                    class="sidebar-link active"
+                    type="button"
+                    data-section="overview"
+                >
+                    <span class="sidebar-icon">▦</span>
+                    Overview
+                </button>
+
+
+                <button
+                    class="sidebar-link"
+                    type="button"
+                    data-section="applications"
+                >
+                    <span class="sidebar-icon">📋</span>
+                    Applications
+
+                    <span
+                        class="sidebar-count"
+                        id="applicationCount"
+                    >
+                        0
+                    </span>
+                </button>
+
+
+                <button
+                    class="sidebar-link"
+                    type="button"
+                    data-section="participants"
+                >
+                    <span class="sidebar-icon">👥</span>
+                    Participants
+
+                    <span
+                        class="sidebar-count"
+                        id="participantCount"
+                    >
+                        0
+                    </span>
+                </button>
+
+
+                <button
+                    class="sidebar-link"
+                    type="button"
+                    data-section="events"
+                >
+                    <span class="sidebar-icon">🏆</span>
+                    Events
+
+                    <span
+                        class="sidebar-count"
+                        id="eventCount"
+                    >
+                        0
+                    </span>
+                </button>
+
+
+                <button
+                    class="sidebar-link"
+                    type="button"
+                    data-section="contacts"
+                >
+                    <span class="sidebar-icon">✉</span>
+                    Messages
+
+                    <span
+                        class="sidebar-count"
+                        id="contactCount"
+                    >
+                        0
+                    </span>
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-divider"></div>
+
+
+            <a
+                href="../../index.html"
+                class="sidebar-site-link"
+            >
+                ← View Main Website
+            </a>
+
+
+            <a
+                href="apply.html"
+                class="sidebar-site-link"
+            >
+                + New Application
+            </a>
+
+        </aside>
+
+
+        <!-- =================================================
+             MAIN
+        ================================================= -->
+
+        <main class="dashboard-main">
+
+
+            <!-- =================================================
+                 HEADING
+            ================================================= -->
+
+            <section class="dashboard-heading">
+
+                <div>
+
+                    <h1>
+                        Admin <span>Dashboard</span>
+                    </h1>
+
+                    <p>
+                        Monitor and manage the SPORTING platform.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="dashboard-time"
+                    id="dashboardTime"
+                >
+                    Loading time...
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STATS
+            ================================================= -->
+
+            <section class="stats-grid">
+
+
+                <article class="stat-card highlight">
+
+                    <div class="stat-icon">
+                        📋
+                    </div>
+
+                    <span
+                        class="stat-number"
+                        id="totalApplications"
+                    >
+                        0
+                    </span>
+
+                    <span class="stat-label">
+                        Applications
+                    </span>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        👥
+                    </div>
+
+                    <span
+                        class="stat-number"
+                        id="totalParticipants"
+                    >
+                        0
+                    </span>
+
+                    <span class="stat-label">
+                        Participants
+                    </span>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        🏆
+                    </div>
+
+                    <span
+                        class="stat-number"
+                        id="totalEvents"
+                    >
+                        0
+                    </span>
+
+                    <span class="stat-label">
+                        Events
+                    </span>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        ✉
+                    </div>
+
+                    <span
+                        class="stat-number"
+                        id="totalContacts"
+                    >
+                        0
+                    </span>
+
+                    <span class="stat-label">
+                        Messages
+                    </span>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        ⏳
+                    </div>
+
+                    <span
+                        class="stat-number"
+                        id="pendingApplications"
+                    >
+                        0
+                    </span>
+
+                    <span class="stat-label">
+                        Pending
+                    </span>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        📅
+                    </div>
+
+                    <span
+                        class="stat-number"
+                        id="upcomingEvents"
+                    >
+                        0
+                    </span>
+
+                    <span class="stat-label">
+                        Upcoming
+                    </span>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+            ================================================= -->
+
+            <section class="dashboard-panel">
+
+                <div class="panel-header">
+
+                    <div class="panel-title">
+
+                        <h2>
+                            Quick <span>Actions</span>
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+
+                    <button
+                        type="button"
+                        class="quick-action"
+                        data-section="applications"
+                    >
+
+                        <span class="quick-action-icon">
+                            📋
+                        </span>
+
+                        <span class="quick-action-title">
+                            Applications
+                        </span>
+
+                        <span class="quick-action-text">
+                            Review event requests
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="quick-action"
+                        data-section="participants"
+                    >
+
+                        <span class="quick-action-icon">
+                            👥
+                        </span>
+
+                        <span class="quick-action-title">
+                            Participants
+                        </span>
+
+                        <span class="quick-action-text">
+                            Manage registrations
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="quick-action"
+                        data-section="events"
+                    >
+
+                        <span class="quick-action-icon">
+                            🏆
+                        </span>
+
+                        <span class="quick-action-title">
+                            Events
+                        </span>
+
+                        <span class="quick-action-text">
+                            Manage sporting events
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="quick-action"
+                        data-section="contacts"
+                    >
+
+                        <span class="quick-action-icon">
+                            ✉
+                        </span>
+
+                        <span class="quick-action-title">
+                            Messages
+                        </span>
+
+                        <span class="quick-action-text">
+                            Review enquiries
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 APPLICATIONS
+            ================================================= -->
+
+            <section
+                class="dashboard-panel dashboard-section"
+                id="applicationsSection"
+                data-section-panel="applications"
+            >
+
+                <div class="panel-header">
+
+                    <div class="panel-title">
+
+                        <div>
+
+                            <h2>
+                                Event <span>Applications</span>
+                            </h2>
+
+                            <div class="panel-subtitle">
+                                Requests submitted through SPORTING
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel-actions">
+
+                        <button
+                            type="button"
+                            class="panel-btn"
+                            data-refresh="applications"
+                        >
+                            Refresh
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="filter-bar">
+
+                    <input
+                        type="search"
+                        class="filter-input"
+                        id="applicationSearch"
+                        placeholder="Search name, email, competition, sport..."
+                    >
+
+                    <select
+                        class="filter-select"
+                        id="applicationStatusFilter"
+                    >
+
+                        <option value="">
+                            All Status
+                        </option>
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                        <option value="reviewing">
+                            Reviewing
+                        </option>
+
+                        <option value="approved">
+                            Approved
+                        </option>
+
+                        <option value="rejected">
+                            Rejected
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                    class="table-wrapper"
+                    id="applicationsTableWrapper"
+                >
+
+                    <div class="dashboard-loading">
+
+                        <div class="loading-spinner"></div>
+
+                        Loading applications...
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PARTICIPANTS
+            ================================================= -->
+
+            <section
+                class="dashboard-panel dashboard-section"
+                id="participantsSection"
+                data-section-panel="participants"
+            >
+
+                <div class="panel-header">
+
+                    <div class="panel-title">
+
+                        <div>
+
+                            <h2>
+                                <span>Participants</span>
+                            </h2>
+
+                            <div class="panel-subtitle">
+                                Event participant registrations
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel-actions">
+
+                        <button
+                            type="button"
+                            class="panel-btn"
+                            data-refresh="participants"
+                        >
+                            Refresh
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="filter-bar">
+
+                    <input
+                        type="search"
+                        class="filter-input"
+                        id="participantSearch"
+                        placeholder="Search participant, email, registration ID..."
+                    >
+
+                    <select
+                        class="filter-select"
+                        id="participantStatusFilter"
+                    >
+
+                        <option value="">
+                            All Status
+                        </option>
+
+                        <option value="registered">
+                            Registered
+                        </option>
+
+                        <option value="confirmed">
+                            Confirmed
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+
+                        <option value="cancelled">
+                            Cancelled
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                    class="table-wrapper"
+                    id="participantsTableWrapper"
+                >
+
+                    <div class="dashboard-loading">
+
+                        <div class="loading-spinner"></div>
+
+                        Loading participants...
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 EVENTS
+            ================================================= -->
+
+            <section
+                class="dashboard-panel dashboard-section"
+                id="eventsSection"
+                data-section-panel="events"
+            >
+
+                <div class="panel-header">
+
+                    <div class="panel-title">
+
+                        <div>
+
+                            <h2>
+                                Sporting <span>Events</span>
+                            </h2>
+
+                            <div class="panel-subtitle">
+                                Upcoming and past events
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel-actions">
+
+                        <button
+                            type="button"
+                            class="panel-btn"
+                            data-refresh="events"
+                        >
+                            Refresh
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="filter-bar">
+
+                    <input
+                        type="search"
+                        class="filter-input"
+                        id="eventSearch"
+                        placeholder="Search event, sport, location..."
+                    >
+
+                    <select
+                        class="filter-select"
+                        id="eventStatusFilter"
+                    >
+
+                        <option value="">
+                            All Status
+                        </option>
+
+                        <option value="upcoming">
+                            Upcoming
+                        </option>
+
+                        <option value="ongoing">
+                            Ongoing
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+
+                        <option value="cancelled">
+                            Cancelled
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                    class="table-wrapper"
+                    id="eventsTableWrapper"
+                >
+
+                    <div class="dashboard-loading">
+
+                        <div class="loading-spinner"></div>
+
+                        Loading events...
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CONTACTS
+            ================================================= -->
+
+            <section
+                class="dashboard-panel dashboard-section"
+                id="contactsSection"
+                data-section-panel="contacts"
+            >
+
+                <div class="panel-header">
+
+                    <div class="panel-title">
+
+                        <div>
+
+                            <h2>
+                                Contact <span>Messages</span>
+                            </h2>
+
+                            <div class="panel-subtitle">
+                                Website enquiries and messages
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel-actions">
+
+                        <button
+                            type="button"
+                            class="panel-btn"
+                            data-refresh="contacts"
+                        >
+                            Refresh
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="filter-bar">
+
+                    <input
+                        type="search"
+                        class="filter-input"
+                        id="contactSearch"
+                        placeholder="Search name, email, subject..."
+                    >
+
+                    <select
+                        class="filter-select"
+                        id="contactStatusFilter"
+                    >
+
+                        <option value="">
+                            All Status
+                        </option>
+
+                        <option value="new">
+                            New
+                        </option>
+
+                        <option value="read">
+                            Read
+                        </option>
+
+                        <option value="replied">
+                            Replied
+                        </option>
+
+                        <option value="closed">
+                            Closed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                    class="table-wrapper"
+                    id="contactsTableWrapper"
+                >
+
+                    <div class="dashboard-loading">
+
+                        <div class="loading-spinner"></div>
+
+                        Loading messages...
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         DETAIL MODAL
+    ===================================================== -->
+
+    <div
+        class="admin-modal"
+        id="adminModal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-card">
+
+            <div class="modal-header">
+
+                <h3 id="modalTitle">
+                    Record Details
+                </h3>
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="modalClose"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div
+                class="modal-body"
+                id="modalBody"
+            >
+
+                <!-- Details inserted by admin.js -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TOAST
+    ===================================================== -->
+
+    <div
+        class="admin-toast"
+        id="adminToast"
+    ></div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        /*
+         * The main dashboard functionality is handled by
+         * the existing SPORTING admin.js file.
+         *
+         * This small page layer only provides:
+         * - live clock
+         * - password-independent UI helpers
+         * - modal closing
+         * - compatibility with admin.js
+         */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                /* =============================================
+                   LIVE CLOCK
+                ============================================= */
+
+                const dashboardTime =
+                    document.getElementById(
+                        "dashboardTime"
+                    );
+
+
+                function updateClock() {
+
+                    if (!dashboardTime) {
+                        return;
+                    }
+
+
+                    const now =
+                        new Date();
+
+
+                    const date =
+                        now.toLocaleDateString(
+                            "en-IN",
+                            {
+                                weekday: "short",
+                                day: "2-digit",
+                                month: "short",
+                                year: "numeric"
+                            }
+                        );
+
+
+                    const time =
+                        now.toLocaleTimeString(
+                            "en-IN",
+                            {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                                second: "2-digit",
+                                hour12: true
+                            }
+                        );
+
+
+                    dashboardTime.textContent =
+                        `${date} • ${time}`;
+
+                }
+
+
+                updateClock();
+
+                setInterval(
+                    updateClock,
+                    1000
+                );
+
+
+                /* =============================================
+                   MODAL CLOSE
+                ============================================= */
+
+                const modal =
+                    document.getElementById(
+                        "adminModal"
+                    );
+
+
+                const modalClose =
+                    document.getElementById(
+                        "modalClose"
+                    );
+
+
+                function closeModal() {
+
+                    if (!modal) {
+                        return;
+                    }
+
+
+                    modal.classList.remove(
+                        "show"
+                    );
+
+
+                    modal.setAttribute(
+                        "aria-hidden",
+                        "true"
+                    );
+
+                }
+
+
+                if (modalClose) {
+
+                    modalClose.addEventListener(
+                        "click",
+                        closeModal
+                    );
+
+                }
+
+
+                if (modal) {
+
+                    modal.addEventListener(
+                        "click",
+                        function (event) {
+
+                            if (
+                                event.target ===
+                                modal
+                            ) {
+
+                                closeModal();
+
+                            }
+
+                        }
+                    );
+
+                }
+
+
+                document.addEventListener(
+                    "keydown",
+                    function (event) {
+
+                        if (
+                            event.key ===
+                            "Escape"
+                        ) {
+
+                            closeModal();
+
+                        }
+
+                    }
+                );
+
+
+                /* =============================================
+                   SIDEBAR SECTION NAVIGATION
+                ============================================= */
+
+                const sidebarLinks =
+                    document.querySelectorAll(
+                        ".sidebar-link"
+                    );
+
+
+                const quickActions =
+                    document.querySelectorAll(
+                        ".quick-action"
+                    );
+
+
+                function showSection(
+                    section
+                ) {
+
+                    const target =
+                        document.querySelector(
+                            `[data-section-panel="${section}"]`
+                        );
+
+
+                    if (!target) {
+                        return;
+                    }
+
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+
+                    sidebarLinks.forEach(
+                        function (link) {
+
+                            link.classList.toggle(
+                                "active",
+                                link.dataset.section ===
+                                    section
+                            );
+
+                        }
+                    );
+
+                }
+
+
+                sidebarLinks.forEach(
+                    function (link) {
+
+                        link.addEventListener(
+                            "click",
+                            function () {
+
+                                const section =
+                                    this.dataset.section;
+
+
+                                if (
+                                    section ===
+                                    "overview"
+                                ) {
+
+                                    window.scrollTo({
+                                        top: 0,
+                                        behavior: "smooth"
+                                    });
+
+                                    sidebarLinks.forEach(
+                                        function (item) {
+                                            item.classList.remove(
+                                                "active"
+                                            );
+                                        }
+                                    );
+
+                                    this.classList.add(
+                                        "active"
+                                    );
+
+                                    return;
+
+                                }
+
+
+                                showSection(
+                                    section
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+
+                quickActions.forEach(
+                    function (action) {
+
+                        action.addEventListener(
+                            "click",
+                            function () {
+
+                                showSection(
+                                    this.dataset.section
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+
+                /* =============================================
+                   REFRESH BUTTON COMPATIBILITY
+                ============================================= */
+
+                document
+                    .querySelectorAll(
+                        "[data-refresh]"
+                    )
+                    .forEach(
+                        function (button) {
+
+                            button.addEventListener(
+                                "click",
+                                function () {
+
+                                    const type =
+                                        this.dataset.refresh;
+
+
+                                    if (
+                                        window.SPORTING_ADMIN &&
+                                        typeof window.SPORTING_ADMIN[
+                                            "load" +
+                                            type.charAt(0).toUpperCase() +
+                                            type.slice(1)
+                                        ] ===
+                                        "function"
+                                    ) {
+
+                                        window.SPORTING_ADMIN[
+                                            "load" +
+                                            type.charAt(0).toUpperCase() +
+                                            type.slice(1)
+                                        ]();
+
+                                    }
+
+                                    else {
+
+                                        window.location.reload();
+
+                                    }
+
+                                }
+                            );
+
+                        }
+                    );
+
+
+                /* =============================================
+                   GENERIC TOAST
+                ============================================= */
+
+                window.showAdminToast =
+                    function (message) {
+
+                        const toast =
+                            document.getElementById(
+                                "adminToast"
+                            );
+
+
+                        if (!toast) {
+                            return;
+                        }
+
+
+                        toast.textContent =
+                            message;
+
+
+                        toast.classList.add(
+                            "show"
+                        );
+
+
+                        setTimeout(
+                            function () {
+
+                                toast.classList.remove(
+                                    "show"
+                                );
+
+                            },
+                            2500
+                        );
+
+                    };
+
+
+                /* =============================================
+                   UPDATE USER DISPLAY
+                ============================================= */
+
+                try {
+
+                    const storedAdmin =
+                        localStorage.getItem(
+                            "SPORTING_ADMIN"
+                        );
+
+
+                    if (storedAdmin) {
+
+                        const admin =
+                            JSON.parse(
+                                storedAdmin
+                            );
+
+
+                        const name =
+                            admin.name ||
+                            admin.fullName ||
+                            "SPORTING Admin";
+
+
+                        const role =
+                            admin.role ||
+                            "Administrator";
+
+
+                        const userName =
+                            document.getElementById(
+                                "adminUserName"
+                            );
+
+
+                        const userRole =
+                            document.getElementById(
+                                "adminUserRole"
+                            );
+
+
+                        const avatar =
+                            document.getElementById(
+                                "adminAvatar"
+                            );
+
+
+                        if (userName) {
+
+                            userName.textContent =
+                                name;
+
+                        }
+
+
+                        if (userRole) {
+
+                            userRole.textContent =
+                                String(role)
+                                    .replace(
+                                        /[-_]/g,
+                                        " "
+                                    );
+
+                        }
+
+
+                        if (avatar) {
+
+                            avatar.textContent =
+                                name
+                                    .trim()
+                                    .charAt(0)
+                                    .toUpperCase() ||
+                                "S";
+
+                        }
+
+                    }
+
+                } catch (error) {
+
+                    console.warn(
+                        "Could not load admin display data.",
+                        error
+                    );
+
+                }
+
+
+            });
+
+    </script>
+
+
+    <!-- =====================================================
+         EXISTING SPORTING ADMIN SCRIPT
+    ===================================================== -->
+
+    <script
+        src="../js/admin.js"
+    ></script>
+
+</body>
+</html>

@@ -1,0 +1,2224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | SPORTING</title>
+
+    <meta
+        name="description"
+        content="Contact SPORTING for sports event management, marathon organization, tournaments and complete event solutions."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --bg: #07110d;
+            --bg-light: #0c1914;
+            --card: #101f19;
+            --card-2: #13261f;
+
+            --green: #b7ff3c;
+            --green-dark: #7db51d;
+
+            --white: #ffffff;
+            --muted: #a9b5af;
+
+            --border: rgba(183,255,60,0.16);
+
+            --radius: 18px;
+            --container: 1200px;
+
+            --shadow:
+                0 20px 60px rgba(0,0,0,0.35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        .container {
+            width: min(92%, var(--container));
+            margin: auto;
+        }
+
+        /* =========================
+           TOP BAR
+        ========================= */
+
+        .topbar {
+            min-height: 38px;
+            background: var(--green);
+            color: var(--bg);
+            display: flex;
+            align-items: center;
+        }
+
+        .topbar-inner {
+            width: min(92%, var(--container));
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .topbar a:hover {
+            opacity: .65;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: absolute;
+            top: 38px;
+            left: 0;
+            right: 0;
+
+            height: 84px;
+
+            z-index: 1000;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,.78),
+                    rgba(0,0,0,0)
+                );
+        }
+
+        .nav-inner {
+            width: min(92%, var(--container));
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--green);
+            color: var(--bg);
+
+            clip-path: polygon(
+                25% 6%,
+                75% 6%,
+                100% 50%,
+                75% 94%,
+                25% 94%,
+                0 50%
+            );
+
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .logo span:last-child {
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            position: relative;
+
+            padding: 8px 0;
+
+            color: var(--white);
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: color .25s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--green);
+
+            transition: width .25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--green);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-apply {
+            padding: 11px 19px !important;
+
+            background: var(--green);
+            color: var(--bg) !important;
+
+            border-radius: 7px;
+        }
+
+        .nav-apply::after {
+            display: none;
+        }
+
+        .nav-apply:hover {
+            background: #c8ff65;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           MOBILE MENU
+        ========================= */
+
+        .menu-toggle {
+            display: none;
+
+            width: 45px;
+            height: 45px;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            background: rgba(7,17,13,.85);
+            color: white;
+
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+
+            width: 22px;
+            height: 2px;
+
+            margin: 5px auto;
+
+            background: var(--green);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .page-hero {
+            position: relative;
+
+            min-height: 500px;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(3,10,7,.95),
+                    rgba(3,10,7,.75),
+                    rgba(3,10,7,.35)
+                ),
+                url("https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=2000&q=85")
+                center/cover no-repeat;
+        }
+
+        .page-hero::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(183,255,60,.08),
+                    transparent 50%
+                );
+        }
+
+        .page-hero::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 110px;
+
+            background:
+                linear-gradient(
+                    to top,
+                    var(--bg),
+                    transparent
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            padding-top: 75px;
+
+            max-width: 800px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--green);
+
+            font-size: 13px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 16px;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 35px;
+            height: 2px;
+
+            background: var(--green);
+        }
+
+        .hero-content h1 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: clamp(60px, 8vw, 105px);
+            line-height: .88;
+
+            text-transform: uppercase;
+            letter-spacing: -2px;
+
+            margin-bottom: 24px;
+        }
+
+        .hero-content h1 span {
+            color: var(--green);
+        }
+
+        .hero-content p {
+            max-width: 680px;
+
+            color: #d0d8d3;
+
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           CONTACT SECTION
+        ========================= */
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .contact-section {
+            background: var(--bg);
+        }
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                .85fr
+                1.15fr;
+
+            gap: 70px;
+
+            align-items: start;
+        }
+
+        /* =========================
+           CONTACT INFO
+        ========================= */
+
+        .contact-info h2 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: clamp(48px, 6vw, 75px);
+            line-height: .92;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+        .contact-info h2 span {
+            color: var(--green);
+        }
+
+        .contact-info > p {
+            color: var(--muted);
+
+            font-size: 15px;
+            line-height: 1.8;
+
+            max-width: 500px;
+
+            margin-bottom: 38px;
+        }
+
+        .contact-cards {
+            display: grid;
+            gap: 16px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            padding: 20px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateX(5px);
+
+            border-color:
+                rgba(183,255,60,.45);
+        }
+
+        .contact-icon {
+            width: 52px;
+            height: 52px;
+
+            flex: 0 0 52px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 13px;
+
+            background:
+                rgba(183,255,60,.1);
+
+            border:
+                1px solid rgba(183,255,60,.2);
+
+            color: var(--green);
+
+            font-size: 21px;
+        }
+
+        .contact-card h3 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: 22px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 2px;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .contact-card a:hover {
+            color: var(--green);
+        }
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .contact-form-box {
+            padding: 35px;
+
+            background: var(--card);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 22px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .form-header {
+            margin-bottom: 28px;
+        }
+
+        .form-header h3 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: 38px;
+
+            line-height: 1;
+
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+
+            gap: 7px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: #dce4df;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        .form-group label span {
+            color: var(--green);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            border-radius: 9px;
+
+            background: var(--card-2);
+
+            color: var(--white);
+
+            padding: 14px 15px;
+
+            outline: none;
+
+            transition:
+                border-color .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #68766f;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--green);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(183,255,60,.08);
+        }
+
+        .form-group textarea {
+            min-height: 145px;
+
+            resize: vertical;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: var(--card-2);
+            color: white;
+        }
+
+        .char-count {
+            text-align: right;
+
+            color: #65726c;
+
+            font-size: 11px;
+        }
+
+        /* =========================
+           FORM BUTTON
+        ========================= */
+
+        .submit-btn {
+            width: 100%;
+
+            min-height: 52px;
+
+            margin-top: 22px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: var(--green);
+            color: var(--bg);
+
+            cursor: pointer;
+
+            font-size: 13px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: .8px;
+
+            transition:
+                transform .25s ease,
+                background .25s ease,
+                opacity .25s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            background: #c8ff65;
+        }
+
+        .submit-btn:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* =========================
+           MESSAGES
+        ========================= */
+
+        .form-message {
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 14px 16px;
+
+            border-radius: 9px;
+
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .form-message.show {
+            display: block;
+        }
+
+        .form-message.success {
+            background:
+                rgba(183,255,60,.1);
+
+            border:
+                1px solid rgba(183,255,60,.3);
+
+            color: var(--green);
+        }
+
+        .form-message.error {
+            background:
+                rgba(255,75,75,.08);
+
+            border:
+                1px solid rgba(255,75,75,.25);
+
+            color: #ff9b9b;
+        }
+
+        /* =========================
+           WHY CONTACT US
+        ========================= */
+
+        .why-section {
+            background: var(--bg-light);
+        }
+
+        .section-heading {
+            max-width: 750px;
+
+            margin: 0 auto 50px;
+
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: clamp(45px, 6vw, 72px);
+
+            line-height: .95;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .section-heading h2 span {
+            color: var(--green);
+        }
+
+        .section-heading p {
+            color: var(--muted);
+
+            font-size: 15px;
+        }
+
+        .benefit-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .benefit-card {
+            padding: 32px;
+
+            background: var(--card);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-6px);
+
+            border-color:
+                rgba(183,255,60,.45);
+        }
+
+        .benefit-icon {
+            width: 54px;
+            height: 54px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 20px;
+
+            border-radius: 13px;
+
+            background:
+                rgba(183,255,60,.1);
+
+            color: var(--green);
+
+            font-size: 23px;
+        }
+
+        .benefit-card h3 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: 29px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 9px;
+        }
+
+        .benefit-card p {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.75;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta-section {
+            padding: 90px 0;
+
+            background: var(--green);
+
+            color: var(--bg);
+        }
+
+        .cta-inner {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 40px;
+        }
+
+        .cta-content {
+            max-width: 750px;
+        }
+
+        .cta-content .eyebrow {
+            color: var(--bg);
+        }
+
+        .cta-content .eyebrow::before {
+            background: var(--bg);
+        }
+
+        .cta-content h2 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: clamp(45px, 6vw, 75px);
+
+            line-height: .9;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .cta-content p {
+            max-width: 650px;
+
+            color:
+                rgba(7,17,13,.72);
+
+            font-size: 15px;
+        }
+
+        .btn-dark {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 16px 27px;
+
+            background: var(--bg);
+            color: white;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            white-space: nowrap;
+
+            transition:
+                transform .25s ease,
+                background .25s ease;
+        }
+
+        .btn-dark:hover {
+            transform: translateY(-3px);
+            background: #15251e;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            padding: 70px 0 25px;
+
+            background: #040b08;
+
+            border-top:
+                1px solid
+                rgba(183,255,60,.08);
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 50px;
+        }
+
+        .footer-brand p {
+            max-width: 360px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            margin: 20px 0;
+        }
+
+        .footer-brand > a:last-child {
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .footer-brand > a:last-child:hover {
+            color: var(--green);
+        }
+
+        .footer-title {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: 22px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            transition:
+                color .25s ease,
+                transform .25s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--green);
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            padding-top: 22px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.07);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            color: #728078;
+
+            font-size: 12px;
+        }
+
+        .footer-bottom span {
+            color: var(--green);
+        }
+
+        /* =========================
+           REVEAL
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1100px) {
+
+            .nav-links {
+                gap: 18px;
+            }
+
+            .footer-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .benefit-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                position: absolute;
+
+                top: 72px;
+                left: 4%;
+                right: 4%;
+
+                display: none;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 0;
+
+                padding: 12px;
+
+                background:
+                    rgba(7,17,13,.98);
+
+                border:
+                    1px solid var(--border);
+
+                border-radius: 15px;
+
+                box-shadow: var(--shadow);
+
+                backdrop-filter: blur(15px);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 14px 12px;
+
+                border-bottom:
+                    1px solid
+                    rgba(255,255,255,.06);
+            }
+
+            .nav-apply {
+                margin-top: 8px;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+            .cta-inner {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .topbar-inner {
+                justify-content: center;
+
+                font-size: 11px;
+            }
+
+            .page-hero {
+                min-height: 450px;
+            }
+
+            .hero-content {
+                padding-top: 60px;
+            }
+
+            .hero-content h1 {
+                font-size: 65px;
+            }
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .contact-form-box {
+                padding: 25px 20px;
+            }
+
+            .benefit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .logo-mark {
+                width: 37px;
+                height: 37px;
+
+                font-size: 22px;
+            }
+
+            .hero-content h1 {
+                font-size: 55px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+            }
+
+            .contact-info h2 {
+                font-size: 50px;
+            }
+
+            .form-header h3 {
+                font-size: 34px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         TOP BAR
+    ========================================================= -->
+
+    <div class="topbar">
+
+        <div class="topbar-inner">
+
+            <span>
+                SPORTING — RUN. PLAY. ACHIEVE.
+            </span>
+
+            <a href="mailto:singhpratik0143@gmail.com">
+                singhpratik0143@gmail.com
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
+
+    <header class="navbar">
+
+        <div class="nav-inner">
+
+            <a href="../../index.html" class="logo">
+
+                <span class="logo-mark">
+                    S
+                </span>
+
+                <span>
+                    SPORT<span>ING</span>
+                </span>
+
+            </a>
+
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="../../index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="sports.html">
+                    Sports
+                </a>
+
+                <a href="events.html">
+                    Events
+                </a>
+
+                <a href="contact.html" class="active">
+                    Contact
+                </a>
+
+                <a href="apply.html" class="nav-apply">
+                    Organize Event
+                </a>
+
+            </nav>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <section class="page-hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    GET IN TOUCH
+                </div>
+
+                <h1>
+                    LET'S<br>
+                    <span>TALK SPORT</span>
+                </h1>
+
+                <p>
+                    Planning a marathon, tournament, sports day or
+                    complete sporting event? Connect with SPORTING
+                    and tell us what you want to build.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         CONTACT
+    ========================================================= -->
+
+    <section class="section contact-section">
+
+        <div class="container">
+
+            <div class="contact-grid">
+
+
+                <!-- CONTACT INFORMATION -->
+
+                <div class="contact-info reveal">
+
+                    <div class="eyebrow">
+                        CONTACT SPORTING
+                    </div>
+
+                    <h2>
+                        WE'RE<br>
+                        <span>READY.</span>
+                    </h2>
+
+                    <p>
+                        Whether you are organizing your first sporting
+                        event or planning a large competition, our team
+                        can help you turn the idea into a professionally
+                        managed event.
+                    </p>
+
+
+                    <div class="contact-cards">
+
+
+                        <div class="contact-card">
+
+                            <div class="contact-icon">
+                                ✉
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Email
+                                </h3>
+
+                                <a href="mailto:singhpratik0143@gmail.com">
+                                    singhpratik0143@gmail.com
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-card">
+
+                            <div class="contact-icon">
+                                🏆
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Event Management
+                                </h3>
+
+                                <p>
+                                    Marathons • Tournaments • Sports Events
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-card">
+
+                            <div class="contact-icon">
+                                ⚡
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Response
+                                </h3>
+
+                                <p>
+                                    Tell us about your event and requirements
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTACT FORM -->
+
+                <div class="contact-form-box reveal">
+
+                    <div class="form-header">
+
+                        <div class="eyebrow">
+                            SEND AN ENQUIRY
+                        </div>
+
+                        <h3>
+                            Start A Conversation
+                        </h3>
+
+                        <p>
+                            Fill in the details below and our team
+                            will receive your enquiry.
+                        </p>
+
+                    </div>
+
+
+                    <form
+                        id="contactForm"
+                        data-form="contact"
+                        novalidate
+                    >
+
+                        <div class="form-grid">
+
+
+                            <!-- NAME -->
+
+                            <div class="form-group">
+
+                                <label for="name">
+                                    Full Name <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Enter your name"
+                                    autocomplete="name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- EMAIL -->
+
+                            <div class="form-group">
+
+                                <label for="email">
+                                    Email <span>*</span>
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Enter your email"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- PHONE -->
+
+                            <div class="form-group">
+
+                                <label for="phone">
+                                    Phone
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="10-digit mobile number"
+                                    inputmode="numeric"
+                                    autocomplete="tel"
+                                >
+
+                            </div>
+
+
+                            <!-- COMPANY -->
+
+                            <div class="form-group">
+
+                                <label for="company">
+                                    Organization
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="company"
+                                    name="company"
+                                    placeholder="School, company or organization"
+                                >
+
+                            </div>
+
+
+                            <!-- SUBJECT -->
+
+                            <div class="form-group full">
+
+                                <label for="subject">
+                                    Subject
+                                </label>
+
+                                <select
+                                    id="subject"
+                                    name="subject"
+                                >
+
+                                    <option value="">
+                                        Select an enquiry type
+                                    </option>
+
+                                    <option value="Marathon">
+                                        Organizing a Marathon
+                                    </option>
+
+                                    <option value="Sports Competition">
+                                        Sports Competition
+                                    </option>
+
+                                    <option value="Complete Event Management">
+                                        Complete Event Management
+                                    </option>
+
+                                    <option value="School/College Event">
+                                        School / College Sports Event
+                                    </option>
+
+                                    <option value="Corporate Event">
+                                        Corporate Sports Event
+                                    </option>
+
+                                    <option value="General Enquiry">
+                                        General Enquiry
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- MESSAGE -->
+
+                            <div class="form-group full">
+
+                                <label for="message">
+                                    Message <span>*</span>
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    maxlength="2000"
+                                    placeholder="Tell us about your event or enquiry..."
+                                    required
+                                ></textarea>
+
+                                <div
+                                    class="char-count"
+                                    id="charCount"
+                                >
+                                    0 / 2000
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="submit-btn"
+                            id="submitBtn"
+                        >
+                            Send Enquiry →
+                        </button>
+
+
+                        <div
+                            class="form-message"
+                            id="formMessage"
+                            role="alert"
+                        ></div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         WHY CONTACT
+    ========================================================= -->
+
+    <section class="section why-section">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <div class="eyebrow">
+                    WHY SPORTING
+                </div>
+
+                <h2>
+                    YOUR EVENT.<br>
+                    <span>OUR EXPERTISE.</span>
+                </h2>
+
+                <p>
+                    We combine planning, technology, operations and
+                    on-ground coordination to create reliable sporting
+                    experiences.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-grid">
+
+
+                <div class="benefit-card reveal">
+
+                    <div class="benefit-icon">
+                        📋
+                    </div>
+
+                    <h3>
+                        Clear Planning
+                    </h3>
+
+                    <p>
+                        We understand your objectives, participants,
+                        venue and requirements before building the
+                        event plan.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card reveal">
+
+                    <div class="benefit-icon">
+                        ⚙
+                    </div>
+
+                    <h3>
+                        Complete Operations
+                    </h3>
+
+                    <p>
+                        From registration and equipment to event-day
+                        coordination, we help manage the operational
+                        details.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card reveal">
+
+                    <div class="benefit-icon">
+                        🏆
+                    </div>
+
+                    <h3>
+                        Better Experience
+                    </h3>
+
+                    <p>
+                        Every participant, team and organizer should
+                        experience a professional and well-organized
+                        sporting event.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         CTA
+    ========================================================= -->
+
+    <section class="cta-section">
+
+        <div class="container">
+
+            <div class="cta-inner">
+
+                <div class="cta-content">
+
+                    <div class="eyebrow">
+                        READY TO START?
+                    </div>
+
+                    <h2>
+                        BUILD YOUR<br>
+                        EVENT.
+                    </h2>
+
+                    <p>
+                        Have a marathon, tournament or sports competition
+                        in mind? Submit your event requirements and let
+                        SPORTING take it forward.
+                    </p>
+
+                </div>
+
+                <a href="apply.html" class="btn-dark">
+                    Organize Your Event →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div class="footer-brand">
+
+                    <a href="../../index.html" class="logo">
+
+                        <span class="logo-mark">
+                            S
+                        </span>
+
+                        <span>
+                            SPORT<span>ING</span>
+                        </span>
+
+                    </a>
+
+                    <p>
+                        Professional sports event management built
+                        around performance, organization, safety and
+                        unforgettable experiences.
+                    </p>
+
+                    <a href="mailto:singhpratik0143@gmail.com">
+                        singhpratik0143@gmail.com
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Company
+                    </div>
+
+                    <div class="footer-links">
+
+                        <a href="about.html">
+                            About Us
+                        </a>
+
+                        <a href="services.html">
+                            Services
+                        </a>
+
+                        <a href="sports.html">
+                            Sports
+                        </a>
+
+                        <a href="events.html">
+                            Events
+                        </a>
+
+                        <a href="contact.html">
+                            Contact
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Sports
+                    </div>
+
+                    <div class="footer-links">
+
+                        <a href="sports.html">
+                            Running & Marathon
+                        </a>
+
+                        <a href="sports.html">
+                            Cricket
+                        </a>
+
+                        <a href="sports.html">
+                            Football
+                        </a>
+
+                        <a href="sports.html">
+                            Basketball
+                        </a>
+
+                        <a href="sports.html">
+                            Athletics
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Quick Links
+                    </div>
+
+                    <div class="footer-links">
+
+                        <a href="apply.html">
+                            Organize Event
+                        </a>
+
+                        <a href="register.html">
+                            Participant Registration
+                        </a>
+
+                        <a href="events.html">
+                            Upcoming Events
+                        </a>
+
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+
+                        <a href="admin-login.html">
+                            Admin Login
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <div>
+                    © 2026 SPORTING. All rights reserved.
+                </div>
+
+                <div>
+                    Run. Play. <span>Achieve.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* =========================
+               MOBILE MENU
+            ========================= */
+
+            const menuToggle =
+                document.getElementById("menuToggle");
+
+            const navLinks =
+                document.getElementById("navLinks");
+
+
+            if (menuToggle && navLinks) {
+
+                menuToggle.addEventListener(
+                    "click",
+                    function () {
+
+                        const isOpen =
+                            navLinks.classList.toggle("open");
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            isOpen ? "true" : "false"
+                        );
+
+                    }
+                );
+
+
+                navLinks
+                    .querySelectorAll("a")
+                    .forEach(function (link) {
+
+                        link.addEventListener(
+                            "click",
+                            function () {
+
+                                navLinks.classList.remove("open");
+
+                                menuToggle.setAttribute(
+                                    "aria-expanded",
+                                    "false"
+                                );
+
+                            }
+                        );
+
+                    });
+
+            }
+
+
+            /* =========================
+               SCROLL REVEAL
+            ========================= */
+
+            const revealElements =
+                document.querySelectorAll(".reveal");
+
+
+            if ("IntersectionObserver" in window) {
+
+                const observer =
+                    new IntersectionObserver(
+                        function (entries, observer) {
+
+                            entries.forEach(function (entry) {
+
+                                if (entry.isIntersecting) {
+
+                                    entry.target.classList.add(
+                                        "visible"
+                                    );
+
+                                    observer.unobserve(
+                                        entry.target
+                                    );
+
+                                }
+
+                            });
+
+                        },
+                        {
+                            threshold: 0.12
+                        }
+                    );
+
+
+                revealElements.forEach(function (element) {
+
+                    observer.observe(element);
+
+                });
+
+            } else {
+
+                revealElements.forEach(function (element) {
+
+                    element.classList.add("visible");
+
+                });
+
+            }
+
+
+            /* =========================
+               MESSAGE CHARACTER COUNTER
+            ========================= */
+
+            const message =
+                document.getElementById("message");
+
+            const charCount =
+                document.getElementById("charCount");
+
+
+            if (message && charCount) {
+
+                function updateCharacterCount() {
+
+                    charCount.textContent =
+                        `${message.value.length} / 2000`;
+
+                }
+
+                message.addEventListener(
+                    "input",
+                    updateCharacterCount
+                );
+
+                updateCharacterCount();
+
+            }
+
+
+            /* =========================
+               ESCAPE MOBILE MENU
+            ========================= */
+
+            document.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (event.key === "Escape") {
+
+                        if (navLinks) {
+                            navLinks.classList.remove("open");
+                        }
+
+                        if (menuToggle) {
+
+                            menuToggle.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                        }
+
+                    }
+
+                }
+            );
+
+
+            /* =========================
+               PHONE INPUT
+            ========================= */
+
+            const phone =
+                document.getElementById("phone");
+
+
+            if (phone) {
+
+                phone.addEventListener(
+                    "input",
+                    function () {
+
+                        this.value =
+                            this.value
+                                .replace(/\D/g, "")
+                                .slice(0, 10);
+
+                    }
+                );
+
+            }
+
+
+            /* =========================
+               CONTACT FORM
+               
+               Uses existing contact.js
+               when available.
+            ========================= */
+
+            const contactForm =
+                document.getElementById("contactForm");
+
+            const submitBtn =
+                document.getElementById("submitBtn");
+
+            const formMessage =
+                document.getElementById("formMessage");
+
+
+            if (contactForm) {
+
+                contactForm.addEventListener(
+                    "submit",
+                    function (event) {
+
+                        /*
+                         * contact.js is the primary handler.
+                         * This fallback prevents accidental
+                         * navigation if contact.js is unavailable.
+                         */
+
+                        if (
+                            typeof window.SPORTING_CONTACT ===
+                            "undefined"
+                        ) {
+
+                            event.preventDefault();
+
+                            if (formMessage) {
+
+                                formMessage.className =
+                                    "form-message show error";
+
+                                formMessage.textContent =
+                                    "Contact service is not loaded. Please make sure contact.js is connected.";
+
+                            }
+
+                            if (submitBtn) {
+
+                                submitBtn.disabled = false;
+
+                            }
+
+                        }
+
+                    }
+                );
+
+            }
+
+        });
+
+    </script>
+
+
+    <!-- Existing SPORTING contact API integration -->
+    <script src="../js/contact.js"></script>
+
+</body>
+</html>

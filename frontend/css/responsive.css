@@ -1,0 +1,794 @@
+/* =========================================================
+   SPORTING — RESPONSIVE CSS
+   Mobile + Tablet + Small Laptop Optimization
+   ========================================================= */
+
+
+/* =========================================================
+   LARGE TABLETS / SMALL LAPTOPS
+   1200px and below
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .container {
+        width: min(92%, 1100px);
+    }
+
+    .hero-content {
+        max-width: 650px;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 6vw, 5rem);
+    }
+
+    .sports-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid {
+        gap: 40px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/* =========================================================
+   TABLETS
+   992px and below
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+    html {
+        font-size: 15px;
+    }
+
+    .container {
+        width: min(92%, 900px);
+    }
+
+    /* Navigation */
+
+    .navbar {
+        padding: 14px 0;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    /* Hero */
+
+    .hero {
+        min-height: 680px;
+    }
+
+    .hero-content {
+        max-width: 600px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.8rem, 7vw, 4.5rem);
+    }
+
+    .hero-description {
+        max-width: 550px;
+    }
+
+    /* About */
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .about-image {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* Stats */
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Sports */
+
+    .sports-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Services */
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Events */
+
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Forms */
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer */
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   768px and below
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: min(92%, 680px);
+    }
+
+
+    /* =====================================================
+       TOP BAR
+       ===================================================== */
+
+    .topbar {
+        padding: 8px 0;
+        font-size: 0.78rem;
+    }
+
+    .topbar .container {
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
+
+    .navbar {
+        position: relative;
+    }
+
+    .navbar .container {
+        min-height: 65px;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+
+        gap: 0;
+
+        padding: 10px 20px;
+
+        background: rgba(10, 10, 10, 0.98);
+
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+
+        padding: 14px 8px;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+        font-size: 0.95rem;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero {
+        min-height: 620px;
+    }
+
+    .hero-content {
+        width: 92%;
+        margin: 0 auto;
+
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+
+        line-height: 0.95;
+    }
+
+    .hero-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 0.95rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .hero-dots {
+        bottom: 25px;
+    }
+
+
+    /* =====================================================
+       SECTION SPACING
+       ===================================================== */
+
+    section {
+        padding: 70px 0;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .section-description {
+        font-size: 0.95rem;
+    }
+
+
+    /* =====================================================
+       STATS
+       ===================================================== */
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 25px 15px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+
+    /* =====================================================
+       SPORTS
+       ===================================================== */
+
+    .sports-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+    .sport-card {
+        min-height: 200px;
+    }
+
+
+    /* =====================================================
+       SERVICES
+       ===================================================== */
+
+    .services-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .service-card {
+        padding: 25px;
+    }
+
+
+    /* =====================================================
+       EVENTS
+       ===================================================== */
+
+    .events-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .event-card {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       ABOUT
+       ===================================================== */
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .about-buttons {
+        justify-content: center;
+    }
+
+
+    /* =====================================================
+       CTA
+       ===================================================== */
+
+    .cta-content {
+        text-align: center;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+
+    /* =====================================================
+       FORMS
+       ===================================================== */
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        gap: 35px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   576px and below
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+
+    /* =====================================================
+       TOP BAR
+       ===================================================== */
+
+    .topbar {
+        font-size: 0.7rem;
+
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+
+    /* =====================================================
+       LOGO
+       ===================================================== */
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero {
+        min-height: 570px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.2rem, 14vw, 3.2rem);
+    }
+
+    .hero-subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+    }
+
+    .hero-description {
+        font-size: 0.88rem;
+        line-height: 1.6;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       BUTTONS
+       ===================================================== */
+
+    .btn {
+        width: 100%;
+
+        min-height: 48px;
+
+        padding: 13px 18px;
+    }
+
+
+    /* =====================================================
+       SECTION
+       ===================================================== */
+
+    section {
+        padding: 55px 0;
+    }
+
+    .section-title {
+        font-size: 1.9rem;
+    }
+
+    .section-description {
+        font-size: 0.88rem;
+    }
+
+
+    /* =====================================================
+       STATS
+       ===================================================== */
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 20px 10px;
+    }
+
+    .stat-number {
+        font-size: 1.7rem;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+
+    /* =====================================================
+       SPORTS
+       ===================================================== */
+
+    .sports-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .sport-card {
+        min-height: 190px;
+    }
+
+
+    /* =====================================================
+       SERVICE CARD
+       ===================================================== */
+
+    .service-card {
+        padding: 22px 18px;
+    }
+
+    .service-card h3 {
+        font-size: 1.1rem;
+    }
+
+
+    /* =====================================================
+       EVENT CARD
+       ===================================================== */
+
+    .event-card {
+        padding: 20px;
+    }
+
+
+    /* =====================================================
+       CTA
+       ===================================================== */
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       FORMS
+       ===================================================== */
+
+    .form-card {
+        padding: 20px 15px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+
+    /* =====================================================
+       TABLES
+       ===================================================== */
+
+    .table-wrapper {
+        width: 100%;
+
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 650px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    .footer {
+        padding: 45px 0 25px;
+    }
+
+    .footer-bottom {
+        font-size: 0.75rem;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+   400px and below
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .hero {
+        min-height: 540px;
+    }
+
+    .hero-title {
+        font-size: 2.1rem;
+    }
+
+    .hero-description {
+        font-size: 0.82rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero-content {
+        padding-top: 30px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-description {
+        max-width: 600px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .btn,
+    .nav-links a,
+    .sport-card,
+    .service-card,
+    .event-card {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn {
+        min-height: 46px;
+    }
+
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+
+    .navbar,
+    .topbar,
+    .hero-dots,
+    .hero-buttons,
+    .footer {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    section {
+        padding: 25px 0;
+    }
+
+}

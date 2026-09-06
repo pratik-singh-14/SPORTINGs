@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>About SPORTING | Run. Play. Achieve.</title>
+
+<meta
+    name="description"
+    content="Learn about SPORTING, a professional sports event management company creating organized, exciting and memorable sporting experiences."
+>
+
+<meta name="theme-color" content="#07110d">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+    :root {
+        --bg: #07110d;
+        --bg-light: #0c1914;
+        --card: #101f19;
+        --card-2: #13261f;
+
+        --green: #b7ff3c;
+        --green-dark: #7db51d;
+
+        --white: #ffffff;
+        --muted: #a9b5af;
+
+        --border: rgba(183, 255, 60, 0.16);
+
+        --shadow:
+            0 20px 60px rgba(0, 0, 0, 0.35);
+
+        --radius: 18px;
+        --container: 1200px;
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--white);
+        overflow-x: hidden;
+    }
+
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+
+    button {
+        font: inherit;
+    }
+
+
+    .container {
+        width: min(92%, var(--container));
+        margin: auto;
+    }
+
+
+    /* =========================================================
+       TOP BAR
+    ========================================================= */
+
+    .topbar {
+        background: var(--green);
+        color: #08100b;
+        min-height: 34px;
+
+        display: flex;
+        align-items: center;
+
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+
+    .topbar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 20px;
+    }
+
+
+    .topbar-left,
+    .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
+
+    .navbar {
+        position: relative;
+
+        width: 100%;
+
+        z-index: 50;
+
+        padding: 20px 0;
+
+        background: #07110d;
+
+        border-bottom:
+            1px solid rgba(255, 255, 255, 0.07);
+    }
+
+
+    .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 30px;
+    }
+
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        gap: 11px;
+
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 34px;
+        font-weight: 900;
+
+        letter-spacing: 1px;
+    }
+
+
+    .logo-mark {
+        width: 42px;
+        height: 42px;
+
+        display: grid;
+        place-items: center;
+
+        background: var(--green);
+
+        color: #07110d;
+
+        clip-path: polygon(
+            50% 0%,
+            91% 24%,
+            91% 76%,
+            50% 100%,
+            9% 76%,
+            9% 24%
+        );
+
+        font-size: 20px;
+        font-weight: 900;
+    }
+
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+
+        gap: 26px;
+
+        list-style: none;
+    }
+
+
+    .nav-links a {
+        position: relative;
+
+        color: #fff;
+
+        font-size: 14px;
+        font-weight: 600;
+
+        transition: 0.25s;
+    }
+
+
+    .nav-links a::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        bottom: -7px;
+
+        width: 0;
+        height: 2px;
+
+        background: var(--green);
+
+        transition: 0.25s;
+    }
+
+
+    .nav-links a:hover {
+        color: var(--green);
+    }
+
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+
+    .nav-links .active {
+        color: var(--green);
+    }
+
+
+    .nav-links .active::after {
+        width: 100%;
+    }
+
+
+    .nav-apply {
+        padding: 12px 20px;
+
+        border-radius: 8px;
+
+        background: var(--green);
+
+        color: #07110d !important;
+
+        font-weight: 800 !important;
+    }
+
+
+    .nav-apply:hover {
+        color: #07110d !important;
+
+        transform: translateY(-2px);
+    }
+
+
+    .nav-apply::after {
+        display: none !important;
+    }
+
+
+    .menu-btn {
+        display: none;
+
+        border: 0;
+
+        background: transparent;
+
+        color: white;
+
+        font-size: 28px;
+
+        cursor: pointer;
+    }
+
+
+    /* =========================================================
+       PAGE HERO
+    ========================================================= */
+
+    .page-hero {
+        position: relative;
+
+        min-height: 450px;
+
+        display: flex;
+        align-items: center;
+
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(2, 8, 5, 0.95) 0%,
+                rgba(2, 8, 5, 0.78) 45%,
+                rgba(2, 8, 5, 0.55) 100%
+            ),
+            url("https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=2000&q=85");
+
+        background-size: cover;
+        background-position: center;
+    }
+
+
+    .page-hero::after {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        background:
+            linear-gradient(
+                0deg,
+                rgba(7,17,13,1),
+                transparent 48%
+            );
+
+        pointer-events: none;
+    }
+
+
+    .page-hero-content {
+        position: relative;
+
+        z-index: 2;
+
+        padding: 80px 0;
+    }
+
+
+    .eyebrow {
+        display: inline-flex;
+        align-items: center;
+
+        gap: 10px;
+
+        color: var(--green);
+
+        font-size: 13px;
+        font-weight: 800;
+
+        text-transform: uppercase;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .eyebrow::before {
+        content: "";
+
+        width: 38px;
+        height: 3px;
+
+        background: var(--green);
+    }
+
+
+    .page-hero h1 {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: clamp(60px, 8vw, 108px);
+
+        line-height: 0.86;
+
+        text-transform: uppercase;
+
+        font-weight: 900;
+
+        letter-spacing: -2px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .page-hero h1 span {
+        color: var(--green);
+    }
+
+
+    .page-hero p {
+        max-width: 650px;
+
+        color: #d8dedb;
+
+        font-size: 17px;
+
+        line-height: 1.75;
+    }
+
+
+    /* =========================================================
+       GENERAL
+    ========================================================= */
+
+    section {
+        padding: 100px 0;
+    }
+
+
+    .section-tag {
+        color: var(--green);
+
+        font-size: 12px;
+        font-weight: 800;
+
+        text-transform: uppercase;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .section-title {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: clamp(45px, 6vw, 72px);
+
+        line-height: 0.95;
+
+        text-transform: uppercase;
+
+        font-weight: 900;
+    }
+
+
+    .section-title span {
+        color: var(--green);
+    }
+
+
+    .section-description {
+        max-width: 680px;
+
+        color: var(--muted);
+
+        line-height: 1.8;
+
+        margin-top: 18px;
+    }
+
+
+    /* =========================================================
+       STORY
+    ========================================================= */
+
+    .story {
+        background:
+            radial-gradient(
+                circle at 85% 25%,
+                rgba(183,255,60,0.06),
+                transparent 30%
+            ),
+            var(--bg);
+    }
+
+
+    .story-grid {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 70px;
+
+        align-items: center;
+    }
+
+
+    .story-visual {
+        position: relative;
+
+        min-height: 510px;
+    }
+
+
+    .story-image {
+        width: 88%;
+        height: 500px;
+
+        object-fit: cover;
+
+        border-radius: var(--radius);
+
+        filter: saturate(0.82);
+    }
+
+
+    .story-card {
+        position: absolute;
+
+        right: 0;
+        bottom: 0;
+
+        width: 245px;
+
+        padding: 28px;
+
+        border-radius: var(--radius);
+
+        background: var(--green);
+
+        color: #07110d;
+
+        box-shadow: var(--shadow);
+    }
+
+
+    .story-card strong {
+        display: block;
+
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 54px;
+
+        line-height: 1;
+
+        font-weight: 900;
+    }
+
+
+    .story-card span {
+        display: block;
+
+        margin-top: 8px;
+
+        font-size: 12px;
+
+        line-height: 1.5;
+
+        text-transform: uppercase;
+
+        font-weight: 800;
+    }
+
+
+    .story-content p {
+        color: var(--muted);
+
+        line-height: 1.9;
+
+        margin-bottom: 20px;
+    }
+
+
+    .check-list {
+        list-style: none;
+
+        display: grid;
+
+        gap: 14px;
+
+        margin: 28px 0 32px;
+    }
+
+
+    .check-list li {
+        display: flex;
+        align-items: center;
+
+        gap: 12px;
+
+        color: #dfe7e3;
+
+        font-weight: 600;
+    }
+
+
+    .check {
+        width: 23px;
+        height: 23px;
+
+        flex: 0 0 23px;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 50%;
+
+        background: var(--green);
+
+        color: #07110d;
+
+        font-size: 12px;
+
+        font-weight: 900;
+    }
+
+
+    /* =========================================================
+       MISSION / VISION
+    ========================================================= */
+
+    .mission {
+        background: #09150f;
+    }
+
+
+    .mission-grid {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
+
+        margin-top: 50px;
+    }
+
+
+    .mission-card {
+        position: relative;
+
+        overflow: hidden;
+
+        padding: 40px;
+
+        min-height: 300px;
+
+        border: 1px solid var(--border);
+
+        border-radius: 16px;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,0.04),
+                rgba(255,255,255,0.01)
+            );
+
+        transition: 0.3s;
+    }
+
+
+    .mission-card:hover {
+        transform: translateY(-7px);
+
+        border-color:
+            rgba(183,255,60,0.5);
+
+        background: var(--card);
+    }
+
+
+    .mission-number {
+        position: absolute;
+
+        right: 25px;
+        top: 15px;
+
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 110px;
+
+        line-height: 1;
+
+        font-weight: 900;
+
+        color: rgba(183,255,60,0.05);
+    }
+
+
+    .mission-icon {
+        width: 55px;
+        height: 55px;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 12px;
+
+        background:
+            rgba(183,255,60,0.1);
+
+        color: var(--green);
+
+        font-size: 25px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .mission-card h3 {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 35px;
+
+        text-transform: uppercase;
+
+        margin-bottom: 12px;
+    }
+
+
+    .mission-card p {
+        color: var(--muted);
+
+        line-height: 1.8;
+
+        font-size: 14px;
+    }
+
+
+    /* =========================================================
+       VALUES
+    ========================================================= */
+
+    .values {
+        background: var(--bg);
+    }
+
+
+    .values-header {
+        text-align: center;
+    }
+
+
+    .values-header .section-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .values-grid {
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 16px;
+
+        margin-top: 50px;
+    }
+
+
+    .value-card {
+        padding: 30px 25px;
+
+        border: 1px solid var(--border);
+
+        border-radius: 14px;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,0.035),
+                rgba(255,255,255,0.01)
+            );
+
+        transition: 0.3s;
+    }
+
+
+    .value-card:hover {
+        transform: translateY(-7px);
+
+        border-color:
+            rgba(183,255,60,0.5);
+
+        background: var(--card);
+    }
+
+
+    .value-number {
+        color: var(--green);
+
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 18px;
+
+        font-weight: 900;
+
+        margin-bottom: 15px;
+    }
+
+
+    .value-card h3 {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 28px;
+
+        text-transform: uppercase;
+
+        margin-bottom: 10px;
+    }
+
+
+    .value-card p {
+        color: var(--muted);
+
+        line-height: 1.7;
+
+        font-size: 13px;
+    }
+
+
+    /* =========================================================
+       SPORTS STRIP
+    ========================================================= */
+
+    .sports-strip {
+        background: #09150f;
+    }
+
+
+    .sports-strip-grid {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 16px;
+
+        margin-top: 50px;
+    }
+
+
+    .sport-box {
+        position: relative;
+
+        height: 230px;
+
+        overflow: hidden;
+
+        border-radius: 14px;
+
+        background: var(--card);
+    }
+
+
+    .sport-box img {
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        transition: 0.5s;
+    }
+
+
+    .sport-box::after {
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        background:
+            linear-gradient(
+                to top,
+                rgba(0,0,0,0.9),
+                rgba(0,0,0,0.08)
+            );
+    }
+
+
+    .sport-box:hover img {
+        transform: scale(1.07);
+    }
+
+
+    .sport-box-content {
+        position: absolute;
+
+        z-index: 2;
+
+        left: 20px;
+        right: 20px;
+        bottom: 18px;
+    }
+
+
+    .sport-box-content small {
+        color: var(--green);
+
+        font-size: 10px;
+
+        font-weight: 800;
+
+        text-transform: uppercase;
+
+        letter-spacing: 1px;
+    }
+
+
+    .sport-box-content h3 {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 30px;
+
+        line-height: 1;
+
+        text-transform: uppercase;
+
+        margin-top: 4px;
+    }
+
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .cta {
+        padding: 80px 0;
+    }
+
+
+    .cta-box {
+        position: relative;
+
+        overflow: hidden;
+
+        padding: 65px;
+
+        border-radius: 22px;
+
+        background:
+            linear-gradient(
+                110deg,
+                rgba(183,255,60,0.95),
+                rgba(142,210,42,0.88)
+            );
+
+        color: #07110d;
+    }
+
+
+    .cta-box::after {
+        content: "SPORT";
+
+        position: absolute;
+
+        right: -40px;
+        bottom: -55px;
+
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 180px;
+
+        line-height: 1;
+
+        font-weight: 900;
+
+        opacity: 0.08;
+    }
+
+
+    .cta-content {
+        position: relative;
+
+        z-index: 2;
+
+        max-width: 720px;
+    }
+
+
+    .cta-tag {
+        font-size: 12px;
+
+        font-weight: 900;
+
+        letter-spacing: 2px;
+
+        text-transform: uppercase;
+
+        margin-bottom: 12px;
+    }
+
+
+    .cta h2 {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: clamp(45px, 6vw, 75px);
+
+        text-transform: uppercase;
+
+        line-height: 0.9;
+
+        margin-bottom: 20px;
+    }
+
+
+    .cta p {
+        max-width: 600px;
+
+        line-height: 1.7;
+
+        margin-bottom: 25px;
+    }
+
+
+    .cta .btn {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-height: 50px;
+
+        padding: 0 24px;
+
+        border-radius: 8px;
+
+        background: #07110d;
+
+        color: white;
+
+        font-size: 14px;
+
+        font-weight: 800;
+
+        transition: 0.25s;
+    }
+
+
+    .cta .btn:hover {
+        transform: translateY(-3px);
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+        background: #040a07;
+
+        border-top:
+            1px solid rgba(255,255,255,0.07);
+
+        padding: 70px 0 25px;
+    }
+
+
+    .footer-grid {
+        display: grid;
+
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+        gap: 50px;
+
+        padding-bottom: 50px;
+    }
+
+
+    .footer-brand p {
+        max-width: 360px;
+
+        color: var(--muted);
+
+        line-height: 1.7;
+
+        font-size: 14px;
+
+        margin-top: 20px;
+    }
+
+
+    .footer-heading {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 22px;
+
+        text-transform: uppercase;
+
+        margin-bottom: 18px;
+    }
+
+
+    .footer-links {
+        list-style: none;
+
+        display: grid;
+
+        gap: 12px;
+    }
+
+
+    .footer-links a {
+        color: var(--muted);
+
+        font-size: 13px;
+
+        transition: 0.2s;
+    }
+
+
+    .footer-links a:hover {
+        color: var(--green);
+    }
+
+
+    .footer-bottom {
+        padding-top: 22px;
+
+        border-top:
+            1px solid rgba(255,255,255,0.07);
+
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 20px;
+
+        color: #68756f;
+
+        font-size: 12px;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+        .nav-links {
+            position: fixed;
+
+            top: 0;
+            right: -100%;
+
+            width: min(320px, 85%);
+
+            height: 100vh;
+
+            padding: 100px 30px 30px;
+
+            background: #07110d;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            gap: 25px;
+
+            transition: 0.35s;
+
+            box-shadow:
+                -20px 0 50px rgba(0,0,0,0.4);
+        }
+
+
+        .nav-links.open {
+            right: 0;
+        }
+
+
+        .menu-btn {
+            display: block;
+
+            position: relative;
+
+            z-index: 100;
+        }
+
+
+        .story-grid {
+            grid-template-columns: 1fr;
+
+            gap: 45px;
+        }
+
+
+        .values-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+
+        .sports-strip-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+
+        .footer-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+        .topbar {
+            display: none;
+        }
+
+
+        .navbar {
+            padding: 14px 0;
+        }
+
+
+        .logo {
+            font-size: 28px;
+        }
+
+
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+        }
+
+
+        .page-hero {
+            min-height: 400px;
+        }
+
+
+        .page-hero-content {
+            padding-top: 80px;
+        }
+
+
+        .page-hero h1 {
+            font-size: 64px;
+        }
+
+
+        .page-hero p {
+            font-size: 14px;
+        }
+
+
+        section {
+            padding: 70px 0;
+        }
+
+
+        .story-visual {
+            min-height: 370px;
+        }
+
+
+        .story-image {
+            width: 88%;
+            height: 340px;
+        }
+
+
+        .story-card {
+            width: 175px;
+
+            padding: 20px;
+        }
+
+
+        .story-card strong {
+            font-size: 40px;
+        }
+
+
+        .mission-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .mission-card {
+            min-height: 260px;
+
+            padding: 30px 25px;
+        }
+
+
+        .values-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .sports-strip-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .sport-box {
+            height: 250px;
+        }
+
+
+        .cta {
+            padding: 60px 0;
+        }
+
+
+        .cta-box {
+            padding: 40px 25px;
+        }
+
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+
+            gap: 35px;
+        }
+
+
+        .footer-bottom {
+            flex-direction: column;
+        }
+
+    }
+
+
+    @media (max-width: 400px) {
+
+        .page-hero h1 {
+            font-size: 55px;
+        }
+
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     TOP BAR
+========================================================= -->
+
+<div class="topbar">
+
+    <div class="container topbar-inner">
+
+        <div class="topbar-left">
+
+            <span>
+                🏃 Professional Sports Event Management
+            </span>
+
+        </div>
+
+
+        <div class="topbar-right">
+
+            <span>
+                📧 singhpratik0143@gmail.com
+            </span>
+
+            <span>
+                🇮🇳 India
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="navbar">
+
+    <div class="container nav-inner">
+
+
+        <a
+            href="../../index.html"
+            class="logo"
+        >
+
+            <span class="logo-mark">
+                S
+            </span>
+
+            SPORTING
+
+        </a>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+
+        <ul
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <li>
+                <a href="../../index.html">
+                    Home
+                </a>
+            </li>
+
+
+            <li>
+                <a
+                    href="about.html"
+                    class="active"
+                >
+                    About
+                </a>
+            </li>
+
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+
+            <li>
+                <a href="sports.html">
+                    Sports
+                </a>
+            </li>
+
+
+            <li>
+                <a href="events.html">
+                    Events
+                </a>
+            </li>
+
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+
+            <li>
+                <a
+                    href="apply.html"
+                    class="nav-apply"
+                >
+                    APPLY NOW
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+
+    <!-- =====================================================
+         PAGE HERO
+    ====================================================== -->
+
+    <section class="page-hero">
+
+        <div class="container page-hero-content">
+
+            <div class="eyebrow">
+                Who We Are
+            </div>
+
+
+            <h1>
+                Built For<br>
+                <span>Sport.</span>
+            </h1>
+
+
+            <p>
+                SPORTING creates professionally managed sporting
+                experiences where planning, participation and
+                performance come together.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         OUR STORY
+    ====================================================== -->
+
+    <section class="story">
+
+        <div class="container story-grid">
+
+
+            <div class="story-visual">
+
+                <img
+                    class="story-image"
+                    src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=85"
+                    alt="Athletes competing in a sports event"
+                >
+
+
+                <div class="story-card">
+
+                    <strong>
+                        360°
+                    </strong>
+
+                    <span>
+                        Complete sports event management
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="story-content">
+
+                <div class="section-tag">
+                    Our Story
+                </div>
+
+
+                <h2 class="section-title">
+                    More Than<br>
+                    <span>An Event.</span>
+                </h2>
+
+
+                <p>
+                    SPORTING is a professional sports event management
+                    company focused on creating organized, exciting and
+                    memorable sporting experiences.
+                </p>
+
+
+                <p>
+                    We work across marathon and running events,
+                    tournaments, school and college competitions,
+                    corporate sports programs and community sporting
+                    activities.
+                </p>
+
+
+                <p>
+                    Our approach is simple: understand the objective,
+                    plan every important detail and execute the event
+                    with professionalism.
+                </p>
+
+
+                <ul class="check-list">
+
+                    <li>
+                        <span class="check">✓</span>
+                        Professional event planning
+                    </li>
+
+
+                    <li>
+                        <span class="check">✓</span>
+                        Complete logistics coordination
+                    </li>
+
+
+                    <li>
+                        <span class="check">✓</span>
+                        Participant-focused execution
+                    </li>
+
+
+                    <li>
+                        <span class="check">✓</span>
+                        Medical and security support
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="services.html"
+                    class="btn"
+                    style="
+                        display:inline-flex;
+                        align-items:center;
+                        justify-content:center;
+                        min-height:50px;
+                        padding:0 24px;
+                        border-radius:8px;
+                        background:var(--green);
+                        color:#07110d;
+                        font-size:14px;
+                        font-weight:800;
+                    "
+                >
+                    EXPLORE OUR SERVICES
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MISSION & VISION
+    ====================================================== -->
+
+    <section class="mission">
+
+        <div class="container">
+
+
+            <div class="section-tag">
+                What Drives Us
+            </div>
+
+
+            <h2 class="section-title">
+                Our <span>Purpose.</span>
+            </h2>
+
+
+            <p class="section-description">
+                SPORTING is built around a clear purpose:
+                make sports events more organized, accessible,
+                exciting and professionally managed.
+            </p>
+
+
+            <div class="mission-grid">
+
+
+                <div class="mission-card">
+
+                    <div class="mission-number">
+                        01
+                    </div>
+
+
+                    <div class="mission-icon">
+                        🎯
+                    </div>
+
+
+                    <h3>
+                        Our Mission
+                    </h3>
+
+
+                    <p>
+                        To deliver professionally organized sports
+                        events that put participants, performance and
+                        experience at the center of every decision.
+                    </p>
+
+                </div>
+
+
+                <div class="mission-card">
+
+                    <div class="mission-number">
+                        02
+                    </div>
+
+
+                    <div class="mission-icon">
+                        🚀
+                    </div>
+
+
+                    <h3>
+                        Our Vision
+                    </h3>
+
+
+                    <p>
+                        To become a trusted sports event management
+                        partner for communities, institutions,
+                        organizations and sporting participants.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         VALUES
+    ====================================================== -->
+
+    <section class="values">
+
+        <div class="container">
+
+
+            <div class="values-header">
+
+                <div class="section-tag">
+                    What We Believe
+                </div>
+
+
+                <h2 class="section-title">
+                    Our <span>Values.</span>
+                </h2>
+
+
+                <p class="section-description">
+                    The principles that guide how we plan,
+                    organize and execute every sporting experience.
+                </p>
+
+            </div>
+
+
+            <div class="values-grid">
+
+
+                <div class="value-card">
+
+                    <div class="value-number">
+                        01
+                    </div>
+
+
+                    <h3>
+                        Professionalism
+                    </h3>
+
+
+                    <p>
+                        Every event deserves careful planning,
+                        clear coordination and reliable execution.
+                    </p>
+
+                </div>
+
+
+                <div class="value-card">
+
+                    <div class="value-number">
+                        02
+                    </div>
+
+
+                    <h3>
+                        Participation
+                    </h3>
+
+
+                    <p>
+                        We design experiences that encourage people
+                        to participate, compete and enjoy sport.
+                    </p>
+
+                </div>
+
+
+                <div class="value-card">
+
+                    <div class="value-number">
+                        03
+                    </div>
+
+
+                    <h3>
+                        Safety
+                    </h3>
+
+
+                    <p>
+                        Medical planning, security coordination and
+                        responsible event operations are essential.
+                    </p>
+
+                </div>
+
+
+                <div class="value-card">
+
+                    <div class="value-number">
+                        04
+                    </div>
+
+
+                    <h3>
+                        Excellence
+                    </h3>
+
+
+                    <p>
+                        We continuously look for better ways to
+                        improve planning, operations and experiences.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SPORTS
+    ====================================================== -->
+
+    <section class="sports-strip">
+
+        <div class="container">
+
+
+            <div class="section-tag">
+                What We Cover
+            </div>
+
+
+            <h2 class="section-title">
+                Sports <span>Without Limits.</span>
+            </h2>
+
+
+            <p class="section-description">
+                Our expertise covers endurance events, team sports,
+                tournaments, athletics and organized sporting
+                activities.
+            </p>
+
+
+            <div class="sports-strip-grid">
+
+
+                <a
+                    href="sports.html"
+                    class="sport-box"
+                >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1000&q=85"
+                        alt="Marathon and running"
+                    >
+
+
+                    <div class="sport-box-content">
+
+                        <small>
+                            01 • Endurance
+                        </small>
+
+                        <h3>
+                            Marathon & Running
+                        </h3>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="sports.html"
+                    class="sport-box"
+                >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1000&q=85"
+                        alt="Cricket"
+                    >
+
+
+                    <div class="sport-box-content">
+
+                        <small>
+                            02 • Team Sport
+                        </small>
+
+                        <h3>
+                            Cricket
+                        </h3>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="sports.html"
+                    class="sport-box"
+                >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1000&q=85"
+                        alt="Football"
+                    >
+
+
+                    <div class="sport-box-content">
+
+                        <small>
+                            03 • Team Sport
+                        </small>
+
+                        <h3>
+                            Football
+                        </h3>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <div style="text-align:center; margin-top:35px;">
+
+                <a
+                    href="sports.html"
+                    style="
+                        display:inline-flex;
+                        align-items:center;
+                        justify-content:center;
+                        min-height:50px;
+                        padding:0 24px;
+                        border-radius:8px;
+                        border:1px solid rgba(255,255,255,0.35);
+                        color:white;
+                        font-size:14px;
+                        font-weight:800;
+                        transition:0.25s;
+                    "
+                >
+                    VIEW ALL SPORTS
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <div class="cta-box">
+
+                <div class="cta-content">
+
+                    <div class="cta-tag">
+                        Ready to make it happen?
+                    </div>
+
+
+                    <h2>
+                        Your Event.<br>
+                        Our Expertise.
+                    </h2>
+
+
+                    <p>
+                        Planning a marathon, tournament, school sports
+                        competition or corporate event? Tell SPORTING
+                        what you need and let us help build a
+                        professionally managed sporting experience.
+                    </p>
+
+
+                    <a
+                        href="apply.html"
+                        class="btn"
+                    >
+                        START YOUR APPLICATION
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <a
+                    href="../../index.html"
+                    class="logo"
+                >
+
+                    <span class="logo-mark">
+                        S
+                    </span>
+
+                    SPORTING
+
+                </a>
+
+
+                <p>
+                    Professional sports event management built around
+                    participation, performance and unforgettable
+                    sporting experiences.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3 class="footer-heading">
+                    Company
+                </h3>
+
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="../../index.html">
+                            Home
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="services.html">
+                            Services
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="events.html">
+                            Events
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3 class="footer-heading">
+                    Sports
+                </h3>
+
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="sports.html">
+                            Marathon
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="sports.html">
+                            Cricket
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="sports.html">
+                            Football
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="sports.html">
+                            Basketball
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3 class="footer-heading">
+                    Get Started
+                </h3>
+
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="apply.html">
+                            Organize an Event
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="register.html">
+                            Participant Registration
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="contact.html">
+                            Contact SPORTING
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="admin-login.html">
+                            Admin
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 SPORTING. All rights reserved.
+            </span>
+
+
+            <span>
+                Run. Play. Achieve.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    if (menuBtn && navLinks) {
+
+        menuBtn.addEventListener(
+            "click",
+            function () {
+
+                navLinks.classList.toggle("open");
+
+
+                if (
+                    navLinks.classList.contains("open")
+                ) {
+
+                    menuBtn.innerHTML = "✕";
+
+                } else {
+
+                    menuBtn.innerHTML = "☰";
+
+                }
+
+            }
+        );
+
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        navLinks.classList.remove(
+                            "open"
+                        );
+
+                        menuBtn.innerHTML = "☰";
+
+                    }
+                );
+
+            });
+
+    }
+
+</script>
+
+
+</body>
+</html>

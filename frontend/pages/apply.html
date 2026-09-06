@@ -1,0 +1,2523 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apply | SPORTING — Run. Play. Achieve.</title>
+
+<meta
+    name="description"
+    content="Apply to SPORTING for professional marathon, running, tournament and complete sports event management."
+>
+
+<meta name="theme-color" content="#07110d">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+    /* =========================================================
+       SPORTING - APPLY PAGE
+       Matches index.html design
+    ========================================================= */
+
+    :root {
+        --bg: #07110d;
+        --bg-light: #0c1914;
+        --card: #101f19;
+        --card-2: #13261f;
+
+        --green: #b7ff3c;
+        --green-dark: #7db51d;
+
+        --white: #ffffff;
+        --muted: #a9b5af;
+
+        --border: rgba(183, 255, 60, 0.16);
+
+        --shadow:
+            0 20px 60px rgba(0, 0, 0, 0.35);
+
+        --radius: 18px;
+        --container: 1200px;
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--white);
+        overflow-x: hidden;
+    }
+
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+
+    button,
+    input,
+    textarea,
+    select {
+        font: inherit;
+    }
+
+
+    .container {
+        width: min(92%, var(--container));
+        margin: auto;
+    }
+
+
+    /* =========================================================
+       TOP BAR
+    ========================================================= */
+
+    .topbar {
+        background: var(--green);
+        color: #08100b;
+        min-height: 34px;
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+
+    .topbar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+
+    .topbar-left,
+    .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
+
+    .navbar {
+        position: relative;
+        width: 100%;
+        z-index: 50;
+        padding: 20px 0;
+        background: #07110d;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+
+    .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 34px;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+
+
+    .logo-mark {
+        width: 42px;
+        height: 42px;
+
+        display: grid;
+        place-items: center;
+
+        background: var(--green);
+        color: #07110d;
+
+        clip-path: polygon(
+            50% 0%,
+            91% 24%,
+            91% 76%,
+            50% 100%,
+            9% 76%,
+            9% 24%
+        );
+
+        font-size: 20px;
+        font-weight: 900;
+    }
+
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        list-style: none;
+    }
+
+
+    .nav-links a {
+        position: relative;
+
+        color: #fff;
+
+        font-size: 14px;
+        font-weight: 600;
+
+        transition: 0.25s;
+    }
+
+
+    .nav-links a::after {
+        content: "";
+
+        position: absolute;
+        left: 0;
+        bottom: -7px;
+
+        width: 0;
+        height: 2px;
+
+        background: var(--green);
+
+        transition: 0.25s;
+    }
+
+
+    .nav-links a:hover {
+        color: var(--green);
+    }
+
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+
+    .nav-apply {
+        padding: 12px 20px;
+
+        border-radius: 8px;
+
+        background: var(--green);
+        color: #07110d !important;
+
+        font-weight: 800 !important;
+    }
+
+
+    .nav-apply:hover {
+        color: #07110d !important;
+        transform: translateY(-2px);
+    }
+
+
+    .nav-apply::after {
+        display: none;
+    }
+
+
+    .menu-btn {
+        display: none;
+
+        border: 0;
+        background: transparent;
+
+        color: white;
+        font-size: 28px;
+
+        cursor: pointer;
+    }
+
+
+    /* =========================================================
+       PAGE HERO
+    ========================================================= */
+
+    .page-hero {
+        position: relative;
+
+        min-height: 430px;
+
+        display: flex;
+        align-items: center;
+
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(2,8,5,0.97),
+                rgba(2,8,5,0.78),
+                rgba(2,8,5,0.9)
+            ),
+            url("https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=2000&q=85");
+
+        background-size: cover;
+        background-position: center;
+    }
+
+
+    .page-hero::after {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        background:
+            linear-gradient(
+                0deg,
+                rgba(7,17,13,1),
+                transparent 45%
+            );
+
+        pointer-events: none;
+    }
+
+
+    .page-hero-content {
+        position: relative;
+        z-index: 2;
+
+        padding: 70px 0;
+    }
+
+
+    .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+
+        color: var(--green);
+
+        font-size: 13px;
+        font-weight: 800;
+
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .eyebrow::before {
+        content: "";
+
+        width: 38px;
+        height: 3px;
+
+        background: var(--green);
+    }
+
+
+    .page-hero h1 {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: clamp(58px, 8vw, 105px);
+
+        line-height: 0.88;
+
+        text-transform: uppercase;
+
+        font-weight: 900;
+
+        letter-spacing: -2px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .page-hero h1 span {
+        color: var(--green);
+    }
+
+
+    .page-hero p {
+        max-width: 650px;
+
+        color: #d8dedb;
+
+        font-size: 17px;
+        line-height: 1.75;
+    }
+
+
+    /* =========================================================
+       APPLICATION SECTION
+    ========================================================= */
+
+    .application-section {
+        padding: 100px 0;
+
+        background:
+            radial-gradient(
+                circle at 85% 20%,
+                rgba(183,255,60,0.06),
+                transparent 30%
+            ),
+            var(--bg);
+    }
+
+
+    .application-grid {
+        display: grid;
+
+        grid-template-columns: 0.8fr 1.5fr;
+
+        gap: 55px;
+
+        align-items: start;
+    }
+
+
+    /* =========================================================
+       LEFT INFORMATION
+    ========================================================= */
+
+    .application-info {
+        position: sticky;
+        top: 30px;
+    }
+
+
+    .section-tag {
+        color: var(--green);
+
+        font-size: 12px;
+        font-weight: 800;
+
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .section-title {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: clamp(45px, 6vw, 72px);
+
+        line-height: 0.95;
+
+        text-transform: uppercase;
+
+        font-weight: 900;
+    }
+
+
+    .section-title span {
+        color: var(--green);
+    }
+
+
+    .info-text {
+        color: var(--muted);
+
+        line-height: 1.8;
+
+        margin-top: 20px;
+    }
+
+
+    .choice-list {
+        display: grid;
+
+        gap: 12px;
+
+        margin-top: 30px;
+    }
+
+
+    .choice-card {
+        padding: 20px;
+
+        border: 1px solid var(--border);
+
+        border-radius: 14px;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,0.035),
+                rgba(255,255,255,0.01)
+            );
+
+        transition: 0.3s;
+    }
+
+
+    .choice-card:hover {
+        transform: translateX(5px);
+
+        border-color: rgba(183,255,60,0.5);
+
+        background: var(--card);
+    }
+
+
+    .choice-number {
+        color: var(--green);
+
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 17px;
+        font-weight: 900;
+
+        margin-bottom: 5px;
+    }
+
+
+    .choice-card h3 {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 25px;
+
+        text-transform: uppercase;
+
+        margin-bottom: 6px;
+    }
+
+
+    .choice-card p {
+        color: var(--muted);
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    .contact-box {
+        margin-top: 28px;
+
+        padding: 24px;
+
+        border-radius: 14px;
+
+        background: var(--green);
+
+        color: #07110d;
+    }
+
+
+    .contact-box strong {
+        display: block;
+
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 27px;
+
+        text-transform: uppercase;
+
+        margin-bottom: 8px;
+    }
+
+
+    .contact-box span {
+        display: block;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+
+        font-weight: 600;
+    }
+
+
+    .contact-box a {
+        display: inline-block;
+
+        margin-top: 8px;
+
+        font-weight: 800;
+    }
+
+
+    /* =========================================================
+       FORM CARD
+    ========================================================= */
+
+    .form-card {
+        padding: 40px;
+
+        border: 1px solid var(--border);
+
+        border-radius: 18px;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,0.045),
+                rgba(255,255,255,0.015)
+            );
+
+        box-shadow: var(--shadow);
+    }
+
+
+    .form-heading {
+        margin-bottom: 30px;
+    }
+
+
+    .form-heading h2 {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 42px;
+
+        line-height: 1;
+
+        text-transform: uppercase;
+
+        margin-bottom: 10px;
+    }
+
+
+    .form-heading h2 span {
+        color: var(--green);
+    }
+
+
+    .form-heading p {
+        color: var(--muted);
+
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+
+    .form-section-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        margin: 30px 0 18px;
+
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 25px;
+
+        text-transform: uppercase;
+    }
+
+
+    .form-section-title:first-of-type {
+        margin-top: 0;
+    }
+
+
+    .form-section-title span {
+        width: 28px;
+        height: 28px;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 50%;
+
+        background: var(--green);
+
+        color: #07110d;
+
+        font-family: "Inter", sans-serif;
+
+        font-size: 12px;
+
+        font-weight: 900;
+    }
+
+
+    .form-grid {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
+    }
+
+
+    .form-group {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .form-group.full {
+        grid-column: 1 / -1;
+    }
+
+
+    .form-group label {
+        color: #dce5e0;
+
+        font-size: 12px;
+
+        font-weight: 800;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.5px;
+    }
+
+
+    .required {
+        color: var(--green);
+    }
+
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+
+        border: 1px solid rgba(255,255,255,0.12);
+
+        border-radius: 9px;
+
+        background: #09150f;
+
+        color: white;
+
+        outline: none;
+
+        padding: 14px 15px;
+
+        font-size: 14px;
+
+        transition: 0.25s;
+    }
+
+
+    .form-group input,
+    .form-group select {
+        min-height: 50px;
+    }
+
+
+    .form-group textarea {
+        min-height: 125px;
+
+        resize: vertical;
+
+        line-height: 1.6;
+    }
+
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        color: #65736c;
+    }
+
+
+    .form-group select option {
+        background: #07110d;
+
+        color: white;
+    }
+
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: var(--green);
+
+        box-shadow:
+            0 0 0 3px rgba(183,255,60,0.08);
+    }
+
+
+    .form-help {
+        color: #74827b;
+
+        font-size: 11px;
+
+        line-height: 1.5;
+    }
+
+
+    .facility-grid {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+
+        margin-top: 5px;
+    }
+
+
+    .facility-option {
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 12px;
+
+        border: 1px solid rgba(255,255,255,0.08);
+
+        border-radius: 8px;
+
+        background: rgba(255,255,255,0.02);
+
+        color: #d4ddd8;
+
+        font-size: 12px;
+
+        cursor: pointer;
+
+        transition: 0.2s;
+    }
+
+
+    .facility-option:hover {
+        border-color: rgba(183,255,60,0.35);
+    }
+
+
+    .facility-option input {
+        width: 16px;
+
+        height: 16px;
+
+        accent-color: var(--green);
+    }
+
+
+    .submit-area {
+        margin-top: 30px;
+
+        padding-top: 25px;
+
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+
+    .submit-btn {
+        width: 100%;
+
+        min-height: 56px;
+
+        border: 0;
+
+        border-radius: 9px;
+
+        background: var(--green);
+
+        color: #07110d;
+
+        font-size: 15px;
+
+        font-weight: 900;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.5px;
+
+        cursor: pointer;
+
+        transition: 0.25s;
+    }
+
+
+    .submit-btn:hover {
+        transform: translateY(-3px);
+
+        box-shadow:
+            0 12px 30px rgba(183,255,60,0.2);
+    }
+
+
+    .submit-btn:disabled {
+        opacity: 0.6;
+
+        cursor: not-allowed;
+
+        transform: none;
+    }
+
+
+    .privacy-note {
+        margin-top: 13px;
+
+        color: #65736c;
+
+        font-size: 11px;
+
+        line-height: 1.6;
+
+        text-align: center;
+    }
+
+
+    /* =========================================================
+       MESSAGE
+    ========================================================= */
+
+    .form-message {
+        display: none;
+
+        margin-bottom: 20px;
+
+        padding: 15px 18px;
+
+        border-radius: 9px;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    .form-message.show {
+        display: block;
+    }
+
+
+    .form-message.success {
+        border: 1px solid rgba(183,255,60,0.4);
+
+        background: rgba(183,255,60,0.08);
+
+        color: var(--green);
+    }
+
+
+    .form-message.error {
+        border: 1px solid rgba(255,80,80,0.4);
+
+        background: rgba(255,80,80,0.08);
+
+        color: #ff9999;
+    }
+
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .cta {
+        padding: 80px 0;
+    }
+
+
+    .cta-box {
+        position: relative;
+
+        overflow: hidden;
+
+        padding: 65px;
+
+        border-radius: 22px;
+
+        background:
+            linear-gradient(
+                110deg,
+                rgba(183,255,60,0.95),
+                rgba(142,210,42,0.88)
+            );
+
+        color: #07110d;
+    }
+
+
+    .cta-box::after {
+        content: "SPORT";
+
+        position: absolute;
+
+        right: -40px;
+        bottom: -55px;
+
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 180px;
+
+        line-height: 1;
+
+        font-weight: 900;
+
+        opacity: 0.08;
+    }
+
+
+    .cta-content {
+        position: relative;
+
+        z-index: 2;
+
+        max-width: 720px;
+    }
+
+
+    .cta-tag {
+        font-size: 12px;
+
+        font-weight: 900;
+
+        letter-spacing: 2px;
+
+        text-transform: uppercase;
+
+        margin-bottom: 12px;
+    }
+
+
+    .cta h2 {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: clamp(45px, 6vw, 75px);
+
+        text-transform: uppercase;
+
+        line-height: 0.9;
+
+        margin-bottom: 20px;
+    }
+
+
+    .cta p {
+        max-width: 600px;
+
+        line-height: 1.7;
+
+        margin-bottom: 25px;
+    }
+
+
+    .cta .btn {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-height: 50px;
+
+        padding: 0 24px;
+
+        border-radius: 8px;
+
+        background: #07110d;
+
+        color: white;
+
+        font-size: 14px;
+
+        font-weight: 800;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+        background: #040a07;
+
+        border-top: 1px solid rgba(255,255,255,0.07);
+
+        padding: 70px 0 25px;
+    }
+
+
+    .footer-grid {
+        display: grid;
+
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+        gap: 50px;
+
+        padding-bottom: 50px;
+    }
+
+
+    .footer-brand p {
+        max-width: 360px;
+
+        color: var(--muted);
+
+        line-height: 1.7;
+
+        font-size: 14px;
+
+        margin-top: 20px;
+    }
+
+
+    .footer-heading {
+        font-family: "Barlow Condensed", sans-serif;
+
+        font-size: 22px;
+
+        text-transform: uppercase;
+
+        margin-bottom: 18px;
+    }
+
+
+    .footer-links {
+        list-style: none;
+
+        display: grid;
+
+        gap: 12px;
+    }
+
+
+    .footer-links a {
+        color: var(--muted);
+
+        font-size: 13px;
+
+        transition: 0.2s;
+    }
+
+
+    .footer-links a:hover {
+        color: var(--green);
+    }
+
+
+    .footer-bottom {
+        padding-top: 22px;
+
+        border-top: 1px solid rgba(255,255,255,0.07);
+
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 20px;
+
+        color: #68756f;
+
+        font-size: 12px;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+        .nav-links {
+            position: fixed;
+
+            top: 0;
+            right: -100%;
+
+            width: min(320px, 85%);
+
+            height: 100vh;
+
+            padding: 100px 30px 30px;
+
+            background: #07110d;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            gap: 25px;
+
+            transition: 0.35s;
+
+            box-shadow:
+                -20px 0 50px rgba(0,0,0,0.4);
+        }
+
+
+        .nav-links.open {
+            right: 0;
+        }
+
+
+        .menu-btn {
+            display: block;
+
+            position: relative;
+
+            z-index: 100;
+        }
+
+
+        .application-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .application-info {
+            position: static;
+        }
+
+
+        .footer-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+        .topbar {
+            display: none;
+        }
+
+
+        .navbar {
+            padding: 14px 0;
+        }
+
+
+        .logo {
+            font-size: 28px;
+        }
+
+
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+        }
+
+
+        .page-hero {
+            min-height: 390px;
+        }
+
+
+        .page-hero-content {
+            padding-top: 80px;
+        }
+
+
+        .page-hero h1 {
+            font-size: 64px;
+        }
+
+
+        .page-hero p {
+            font-size: 14px;
+        }
+
+
+        .application-section {
+            padding: 70px 0;
+        }
+
+
+        .form-card {
+            padding: 25px 18px;
+        }
+
+
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .form-group.full {
+            grid-column: auto;
+        }
+
+
+        .facility-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .cta {
+            padding: 60px 0;
+        }
+
+
+        .cta-box {
+            padding: 40px 25px;
+        }
+
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+
+            gap: 35px;
+        }
+
+
+        .footer-bottom {
+            flex-direction: column;
+        }
+
+    }
+
+
+    @media (max-width: 400px) {
+
+        .page-hero h1 {
+            font-size: 55px;
+        }
+
+
+        .form-card {
+            padding: 22px 14px;
+        }
+
+    }
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     TOP BAR
+========================================================= -->
+
+<div class="topbar">
+
+    <div class="container topbar-inner">
+
+        <div class="topbar-left">
+            <span>🏃 Professional Sports Event Management</span>
+        </div>
+
+        <div class="topbar-right">
+            <span>📧 singhpratik0143@gmail.com</span>
+            <span>🇮🇳 India</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="navbar">
+
+    <div class="container nav-inner">
+
+        <a href="../../index.html" class="logo">
+
+            <span class="logo-mark">S</span>
+
+            SPORTING
+
+        </a>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="../../index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="sports.html">
+                    Sports
+                </a>
+            </li>
+
+            <li>
+                <a href="events.html">
+                    Events
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="apply.html"
+                    class="nav-apply"
+                >
+                    APPLY NOW
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     PAGE HERO
+========================================================== -->
+
+<main>
+
+    <section class="page-hero">
+
+        <div class="container page-hero-content">
+
+            <div class="eyebrow">
+                Start Your Event
+            </div>
+
+            <h1>
+                Let's Build<br>
+                Your <span>Event.</span>
+            </h1>
+
+            <p>
+                Tell SPORTING what you are planning.
+                Whether it is a marathon, tournament,
+                school competition, corporate sports day
+                or complete event management project,
+                we are ready to help.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         APPLICATION
+    ====================================================== -->
+
+    <section class="application-section">
+
+        <div class="container">
+
+            <div class="application-grid">
+
+
+                <!-- =================================================
+                     INFORMATION
+                ================================================== -->
+
+                <div class="application-info">
+
+                    <div class="section-tag">
+                        Work With SPORTING
+                    </div>
+
+                    <h2 class="section-title">
+                        Make Your<br>
+                        <span>Event Happen.</span>
+                    </h2>
+
+                    <p class="info-text">
+                        Complete the application and give us
+                        the essential information about your event.
+                        Our team can then understand your requirements
+                        and contact you for the next steps.
+                    </p>
+
+
+                    <div class="choice-list">
+
+
+                        <div class="choice-card">
+
+                            <div class="choice-number">
+                                01
+                            </div>
+
+                            <h3>
+                                Organize a Marathon
+                            </h3>
+
+                            <p>
+                                Planning a marathon, half marathon,
+                                10K, 5K or community running event.
+                            </p>
+
+                        </div>
+
+
+                        <div class="choice-card">
+
+                            <div class="choice-number">
+                                02
+                            </div>
+
+                            <h3>
+                                Organize a Competition
+                            </h3>
+
+                            <p>
+                                Need professional support for cricket,
+                                football, basketball, athletics or
+                                another sports competition.
+                            </p>
+
+                        </div>
+
+
+                        <div class="choice-card">
+
+                            <div class="choice-number">
+                                03
+                            </div>
+
+                            <h3>
+                                Complete Event Management
+                            </h3>
+
+                            <p>
+                                Let SPORTING manage planning,
+                                logistics, facilities, participant
+                                coordination and event operations.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-box">
+
+                        <strong>
+                            Prefer to Talk?
+                        </strong>
+
+                        <span>
+                            Email our team directly:
+                        </span>
+
+                        <a href="mailto:singhpratik0143@gmail.com">
+                            singhpratik0143@gmail.com
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     FORM
+                ================================================== -->
+
+                <div class="form-card">
+
+                    <div class="form-heading">
+
+                        <h2>
+                            Event <span>Application</span>
+                        </h2>
+
+                        <p>
+                            Please provide accurate information.
+                            Fields marked with <strong>*</strong>
+                            are required.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="formMessage"
+                        class="form-message"
+                        role="alert"
+                    ></div>
+
+
+                    <form
+                        id="applicationForm"
+                        data-form="application"
+                        novalidate
+                    >
+
+
+                        <!-- =========================================
+                             STEP 1
+                        ========================================== -->
+
+                        <div class="form-section-title">
+
+                            <span>1</span>
+
+                            Your Information
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group">
+
+                                <label for="name">
+                                    Full Name
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Enter your full name"
+                                    autocomplete="name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="phone">
+                                    Phone Number
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="10-digit mobile number"
+                                    autocomplete="tel"
+                                    inputmode="numeric"
+                                    maxlength="10"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="email">
+                                    Email Address
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="you@example.com"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =========================================
+                             STEP 2
+                        ========================================== -->
+
+                        <div class="form-section-title">
+
+                            <span>2</span>
+
+                            Event Information
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group full">
+
+                                <label for="eventType">
+                                    What do you need?
+                                    <span class="required">*</span>
+                                </label>
+
+                                <select
+                                    id="eventType"
+                                    name="eventType"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select an option
+                                    </option>
+
+                                    <option value="Organizing a Marathon">
+                                        Organizing a Marathon
+                                    </option>
+
+                                    <option value="Organizing any Sports Competition">
+                                        Organizing any Sports Competition
+                                    </option>
+
+                                    <option value="Hiring SPORTING for Complete Event Management">
+                                        Hiring SPORTING for Complete Event Management
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="competitionName">
+                                    Competition / Event Name
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="competitionName"
+                                    name="competitionName"
+                                    placeholder="Example: SPORTING City Marathon 2026"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="sport">
+                                    Sport
+                                    <span class="required">*</span>
+                                </label>
+
+                                <select
+                                    id="sport"
+                                    name="sport"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select sport
+                                    </option>
+
+                                    <option value="Marathon & Running">
+                                        Marathon & Running
+                                    </option>
+
+                                    <option value="Cricket">
+                                        Cricket
+                                    </option>
+
+                                    <option value="Football">
+                                        Football
+                                    </option>
+
+                                    <option value="Basketball">
+                                        Basketball
+                                    </option>
+
+                                    <option value="Athletics">
+                                        Athletics
+                                    </option>
+
+                                    <option value="Cycling">
+                                        Cycling
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="eventDate">
+                                    Event Date
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="eventDate"
+                                    name="eventDate"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="location">
+                                    Event Location
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="location"
+                                    name="location"
+                                    placeholder="City, State / Venue"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="expectedParticipants">
+                                    Expected Participants
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="expectedParticipants"
+                                    name="expectedParticipants"
+                                    placeholder="Example: 500"
+                                    min="1"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="budget">
+                                    Estimated Budget
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="budget"
+                                    name="budget"
+                                    placeholder="Example: ₹2,00,000"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =========================================
+                             STEP 3
+                        ========================================== -->
+
+                        <div class="form-section-title">
+
+                            <span>3</span>
+
+                            Required Facilities
+
+                        </div>
+
+
+                        <div class="facility-grid">
+
+
+                            <label class="facility-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="requiredFacilities"
+                                    value="Venue Management"
+                                >
+
+                                <span>
+                                    Venue Management
+                                </span>
+
+                            </label>
+
+
+                            <label class="facility-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="requiredFacilities"
+                                    value="Participant Registration"
+                                >
+
+                                <span>
+                                    Participant Registration
+                                </span>
+
+                            </label>
+
+
+                            <label class="facility-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="requiredFacilities"
+                                    value="Medical / First Aid"
+                                >
+
+                                <span>
+                                    Medical / First Aid
+                                </span>
+
+                            </label>
+
+
+                            <label class="facility-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="requiredFacilities"
+                                    value="Security & Crowd Management"
+                                >
+
+                                <span>
+                                    Security & Crowd
+                                </span>
+
+                            </label>
+
+
+                            <label class="facility-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="requiredFacilities"
+                                    value="Equipment & Facilities"
+                                >
+
+                                <span>
+                                    Equipment & Facilities
+                                </span>
+
+                            </label>
+
+
+                            <label class="facility-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="requiredFacilities"
+                                    value="Marketing & Promotion"
+                                >
+
+                                <span>
+                                    Marketing & Promotion
+                                </span>
+
+                            </label>
+
+
+                            <label class="facility-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="requiredFacilities"
+                                    value="Timing & Results"
+                                >
+
+                                <span>
+                                    Timing & Results
+                                </span>
+
+                            </label>
+
+
+                            <label class="facility-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="requiredFacilities"
+                                    value="Complete Event Operations"
+                                >
+
+                                <span>
+                                    Complete Event Operations
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- =========================================
+                             STEP 4
+                        ========================================== -->
+
+                        <div class="form-section-title">
+
+                            <span>4</span>
+
+                            Additional Details
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group full">
+
+                                <label for="message">
+                                    Tell Us About Your Event
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    placeholder="Tell us about your event, requirements, number of teams, route, venue, special arrangements or anything else we should know..."
+                                ></textarea>
+
+                                <div class="form-help">
+                                    More details help SPORTING understand
+                                    your requirements before contacting you.
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =========================================
+                             SUBMIT
+                        ========================================== -->
+
+                        <div class="submit-area">
+
+                            <button
+                                type="submit"
+                                class="submit-btn"
+                                id="submitBtn"
+                            >
+                                SUBMIT EVENT APPLICATION
+                            </button>
+
+                            <div class="privacy-note">
+                                Your application will be securely submitted
+                                to SPORTING for review. We will contact you
+                                using the information provided.
+                            </div>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <div class="cta-box">
+
+                <div class="cta-content">
+
+                    <div class="cta-tag">
+                        SPORTING
+                    </div>
+
+                    <h2>
+                        Run. Play.<br>
+                        Achieve.
+                    </h2>
+
+                    <p>
+                        Ready to create your next sporting experience?
+                        Submit your application and let SPORTING help
+                        bring your event to life.
+                    </p>
+
+                    <a
+                        href="../../index.html"
+                        class="btn"
+                    >
+                        BACK TO HOME
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <a
+                    href="../../index.html"
+                    class="logo"
+                >
+
+                    <span class="logo-mark">
+                        S
+                    </span>
+
+                    SPORTING
+
+                </a>
+
+                <p>
+                    Professional sports event management built around
+                    participation, performance and unforgettable
+                    sporting experiences.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3 class="footer-heading">
+                    Company
+                </h3>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="../../index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="services.html">
+                            Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3 class="footer-heading">
+                    Sports
+                </h3>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="sports.html">
+                            Marathon
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="sports.html">
+                            Cricket
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="sports.html">
+                            Football
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="sports.html">
+                            Basketball
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3 class="footer-heading">
+                    Get Started
+                </h3>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="apply.html">
+                            Organize an Event
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="register.html">
+                            Participant Registration
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact SPORTING
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="admin-login.html">
+                            Admin
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 SPORTING. All rights reserved.
+            </span>
+
+            <span>
+                Run. Play. Achieve.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script>
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    if (menuBtn && navLinks) {
+
+        menuBtn.addEventListener(
+            "click",
+            function () {
+
+                navLinks.classList.toggle("open");
+
+                if (
+                    navLinks.classList.contains("open")
+                ) {
+
+                    menuBtn.innerHTML = "✕";
+
+                } else {
+
+                    menuBtn.innerHTML = "☰";
+
+                }
+
+            }
+        );
+
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        navLinks.classList.remove(
+                            "open"
+                        );
+
+                        menuBtn.innerHTML = "☰";
+
+                    }
+                );
+
+            });
+
+    }
+
+
+    /* =========================================================
+       MINIMUM EVENT DATE
+    ========================================================== */
+
+    const eventDate =
+        document.getElementById("eventDate");
+
+
+    if (eventDate) {
+
+        const today =
+            new Date();
+
+
+        const year =
+            today.getFullYear();
+
+
+        const month =
+            String(
+                today.getMonth() + 1
+            ).padStart(2, "0");
+
+
+        const day =
+            String(
+                today.getDate()
+            ).padStart(2, "0");
+
+
+        eventDate.min =
+            `${year}-${month}-${day}`;
+
+    }
+
+
+    /* =========================================================
+       PHONE INPUT
+    ========================================================== */
+
+    const phoneInput =
+        document.getElementById("phone");
+
+
+    if (phoneInput) {
+
+        phoneInput.addEventListener(
+            "input",
+            function () {
+
+                this.value =
+                    this.value
+                        .replace(/\D/g, "")
+                        .slice(0, 10);
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       PARTICIPANT INPUT
+    ========================================================== */
+
+    const participantInput =
+        document.getElementById(
+            "expectedParticipants"
+        );
+
+
+    if (participantInput) {
+
+        participantInput.addEventListener(
+            "input",
+            function () {
+
+                if (
+                    Number(this.value) < 1
+                ) {
+
+                    this.value = "";
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       BUDGET
+    ========================================================== */
+
+    const budgetInput =
+        document.getElementById("budget");
+
+
+    if (budgetInput) {
+
+        budgetInput.addEventListener(
+            "blur",
+            function () {
+
+                const raw =
+                    this.value
+                        .replace(/[^\d]/g, "");
+
+                if (!raw) {
+                    return;
+                }
+
+                const amount =
+                    Number(raw);
+
+
+                if (
+                    Number.isFinite(amount)
+                ) {
+
+                    this.value =
+                        "₹" +
+                        amount.toLocaleString(
+                            "en-IN"
+                        );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       FORM SUBMISSION
+       
+       The main submission logic remains in:
+       frontend/js/apply.js
+    ========================================================== */
+
+    const applicationForm =
+        document.getElementById(
+            "applicationForm"
+        );
+
+
+    if (applicationForm) {
+
+        applicationForm.addEventListener(
+            "submit",
+            function () {
+
+                /*
+                 apply.js handles the actual
+                 API submission.
+
+                 This listener only ensures
+                 the form stays compatible
+                 with the SPORTING backend.
+                */
+
+            }
+        );
+
+    }
+
+</script>
+
+
+<!-- =========================================================
+     SPORTING APPLICATION SCRIPT
+========================================================== -->
+
+<script src="../js/apply.js"></script>
+```
+
+</body>
+</html>

@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | SPORTING</title>
+
+    <meta
+        name="description"
+        content="SPORTING administration login."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --bg: #07110d;
+            --bg-light: #0c1914;
+            --card: #101f19;
+            --card-2: #13261f;
+
+            --green: #b7ff3c;
+            --green-dark: #7db51d;
+
+            --white: #ffffff;
+            --muted: #a9b5af;
+
+            --border: rgba(183,255,60,0.16);
+            --danger: #ff7272;
+
+            --radius: 18px;
+            --container: 1200px;
+
+            --shadow:
+                0 25px 80px rgba(0,0,0,.45);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: "Inter", sans-serif;
+
+            color: var(--white);
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(183,255,60,.07),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(183,255,60,.05),
+                    transparent 32%
+                ),
+                var(--bg);
+
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        /* =====================================================
+           BACKGROUND
+        ===================================================== */
+
+        .background-grid {
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .35;
+
+            background-image:
+                linear-gradient(
+                    rgba(183,255,60,.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(183,255,60,.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+        }
+
+        .glow {
+            position: fixed;
+
+            width: 420px;
+            height: 420px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(183,255,60,.035);
+
+            filter: blur(70px);
+
+            pointer-events: none;
+        }
+
+        .glow-one {
+            top: -180px;
+            left: -180px;
+        }
+
+        .glow-two {
+            right: -180px;
+            bottom: -180px;
+        }
+
+        /* =====================================================
+           TOP BAR
+        ===================================================== */
+
+        .topbar {
+            position: relative;
+            z-index: 10;
+
+            min-height: 38px;
+
+            display: flex;
+            align-items: center;
+
+            background: var(--green);
+
+            color: var(--bg);
+        }
+
+        .topbar-inner {
+            width: min(92%, var(--container));
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .header {
+            position: relative;
+            z-index: 10;
+
+            height: 82px;
+
+            border-bottom:
+                1px solid
+                rgba(183,255,60,.08);
+
+            background:
+                rgba(4,11,8,.72);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .header-inner {
+            width: min(92%, var(--container));
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: 30px;
+            font-weight: 900;
+
+            letter-spacing: 1px;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--green);
+            color: var(--bg);
+
+            clip-path: polygon(
+                25% 6%,
+                75% 6%,
+                100% 50%,
+                75% 94%,
+                25% 94%,
+                0 50%
+            );
+
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .logo span:last-child {
+            color: var(--green);
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: color .25s ease;
+        }
+
+        .back-home:hover {
+            color: var(--green);
+        }
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .main {
+            position: relative;
+            z-index: 2;
+
+            min-height:
+                calc(100vh - 120px);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 70px 20px;
+        }
+
+        .login-layout {
+            width: min(1050px, 100%);
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                440px;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        /* =====================================================
+           LEFT CONTENT
+        ===================================================== */
+
+        .intro {
+            padding-right: 30px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--green);
+
+            font-size: 12px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+            margin-bottom: 18px;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 35px;
+            height: 2px;
+
+            background: var(--green);
+        }
+
+        .intro h1 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size:
+                clamp(65px, 8vw, 105px);
+
+            line-height: .86;
+
+            text-transform: uppercase;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 25px;
+        }
+
+        .intro h1 span {
+            color: var(--green);
+        }
+
+        .intro p {
+            max-width: 570px;
+
+            color: var(--muted);
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            margin-bottom: 32px;
+        }
+
+        .admin-features {
+            display: grid;
+
+            gap: 13px;
+        }
+
+        .admin-feature {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            color: #d6ded9;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .feature-check {
+            width: 25px;
+            height: 25px;
+
+            flex: 0 0 25px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(183,255,60,.1);
+
+            border:
+                1px solid
+                rgba(183,255,60,.2);
+
+            color: var(--green);
+
+            font-size: 12px;
+        }
+
+        /* =====================================================
+           LOGIN CARD
+        ===================================================== */
+
+        .login-card {
+            position: relative;
+
+            padding: 38px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(19,38,31,.98),
+                    rgba(10,25,19,.98)
+                );
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 22px;
+
+            box-shadow: var(--shadow);
+
+            overflow: hidden;
+        }
+
+        .login-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            height: 3px;
+
+            background: var(--green);
+        }
+
+        .card-top {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+        .lock-icon {
+            width: 65px;
+            height: 65px;
+
+            display: grid;
+            place-items: center;
+
+            margin: 0 auto 18px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(183,255,60,.1);
+
+            border:
+                1px solid
+                rgba(183,255,60,.2);
+
+            color: var(--green);
+
+            font-size: 27px;
+        }
+
+        .card-top h2 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: 39px;
+
+            line-height: 1;
+
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .card-top p {
+            color: var(--muted);
+
+            font-size: 12px;
+        }
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-group {
+            margin-bottom: 19px;
+        }
+
+        .form-group label {
+            display: block;
+
+            color: #dce4df;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: .6px;
+
+            margin-bottom: 8px;
+        }
+
+        .input-wrap {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+
+            left: 15px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #718078;
+
+            font-size: 15px;
+
+            pointer-events: none;
+        }
+
+        .form-group input {
+            width: 100%;
+
+            height: 51px;
+
+            padding:
+                0 15px 0 44px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.09);
+
+            border-radius: 9px;
+
+            outline: none;
+
+            background: var(--card-2);
+
+            color: var(--white);
+
+            transition:
+                border-color .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .form-group input::placeholder {
+            color: #66736d;
+        }
+
+        .form-group input:focus {
+            border-color: var(--green);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(183,255,60,.08);
+        }
+
+        /* =====================================================
+           PASSWORD TOGGLE
+        ===================================================== */
+
+        .password-toggle {
+            position: absolute;
+
+            right: 12px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            border: none;
+
+            background: transparent;
+
+            color: #78867f;
+
+            cursor: pointer;
+
+            padding: 7px;
+
+            font-size: 14px;
+        }
+
+        .password-toggle:hover {
+            color: var(--green);
+        }
+
+        /* =====================================================
+           LOGIN BUTTON
+        ===================================================== */
+
+        .login-btn {
+            width: 100%;
+
+            height: 53px;
+
+            margin-top: 5px;
+
+            border: none;
+            border-radius: 9px;
+
+            background: var(--green);
+            color: var(--bg);
+
+            cursor: pointer;
+
+            font-size: 13px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: .8px;
+
+            transition:
+                transform .25s ease,
+                background .25s ease,
+                opacity .25s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            background: #c8ff65;
+        }
+
+        .login-btn:disabled {
+            opacity: .55;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .login-btn.loading {
+            position: relative;
+
+            color: transparent;
+        }
+
+        .login-btn.loading::after {
+            content: "";
+
+            position: absolute;
+
+            width: 19px;
+            height: 19px;
+
+            left: 50%;
+            top: 50%;
+
+            margin:
+                -9.5px 0 0 -9.5px;
+
+            border:
+                2px solid
+                rgba(7,17,13,.25);
+
+            border-top-color: var(--bg);
+
+            border-radius: 50%;
+
+            animation:
+                spin .7s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* =====================================================
+           MESSAGE
+        ===================================================== */
+
+        .login-message {
+            display: none;
+
+            margin-top: 17px;
+
+            padding: 13px 14px;
+
+            border-radius: 8px;
+
+            font-size: 12px;
+
+            line-height: 1.55;
+        }
+
+        .login-message.show {
+            display: block;
+        }
+
+        .login-message.error {
+            background:
+                rgba(255,114,114,.08);
+
+            border:
+                1px solid
+                rgba(255,114,114,.25);
+
+            color: #ff9c9c;
+        }
+
+        .login-message.success {
+            background:
+                rgba(183,255,60,.08);
+
+            border:
+                1px solid
+                rgba(183,255,60,.25);
+
+            color: var(--green);
+        }
+
+        /* =====================================================
+           SECURITY NOTE
+        ===================================================== */
+
+        .security-note {
+            display: flex;
+            align-items: flex-start;
+
+            gap: 9px;
+
+            margin-top: 22px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.06);
+
+            color: #66746d;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+        }
+
+        .security-note strong {
+            color: #8b9892;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+            position: relative;
+            z-index: 2;
+
+            padding: 20px;
+
+            text-align: center;
+
+            color: #56635d;
+
+            font-size: 10px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.04);
+        }
+
+        .footer span {
+            color: var(--green);
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .login-layout {
+                grid-template-columns: 1fr;
+
+                max-width: 500px;
+
+                gap: 40px;
+            }
+
+            .intro {
+                padding-right: 0;
+
+                text-align: center;
+            }
+
+            .intro p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .admin-features {
+                width: max-content;
+                max-width: 100%;
+
+                margin: auto;
+
+                text-align: left;
+            }
+
+            .intro h1 {
+                font-size: 75px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .topbar-inner {
+                justify-content: center;
+
+                font-size: 10px;
+            }
+
+            .topbar-inner span {
+                display: none;
+            }
+
+            .header {
+                height: 72px;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .logo-mark {
+                width: 37px;
+                height: 37px;
+
+                font-size: 22px;
+            }
+
+            .back-home {
+                font-size: 11px;
+            }
+
+            .main {
+                min-height:
+                    calc(100vh - 110px);
+
+                padding:
+                    50px 15px;
+            }
+
+            .intro h1 {
+                font-size: 58px;
+            }
+
+            .intro p {
+                font-size: 13px;
+            }
+
+            .login-card {
+                padding: 28px 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            .intro h1 {
+                font-size: 50px;
+            }
+
+            .card-top h2 {
+                font-size: 34px;
+            }
+
+            .admin-feature {
+                font-size: 11px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background-grid"></div>
+
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+
+    <!-- =====================================================
+         TOP BAR
+    ===================================================== -->
+
+    <div class="topbar">
+
+        <div class="topbar-inner">
+
+            <span>
+                SPORTING — RUN. PLAY. ACHIEVE.
+            </span>
+
+            <span>
+                ADMINISTRATION PORTAL
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header class="header">
+
+        <div class="header-inner">
+
+            <a href="../../index.html" class="logo">
+
+                <span class="logo-mark">
+                    S
+                </span>
+
+                <span>
+                    SPORT<span>ING</span>
+                </span>
+
+            </a>
+
+
+            <a
+                href="../../index.html"
+                class="back-home"
+            >
+                ← Back to Website
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ===================================================== -->
+
+    <main class="main">
+
+        <div class="login-layout">
+
+
+            <!-- =================================================
+                 INTRO
+            ================================================= -->
+
+            <section class="intro">
+
+                <div class="eyebrow">
+                    SECURE ACCESS
+                </div>
+
+                <h1>
+                    CONTROL<br>
+                    <span>THE GAME.</span>
+                </h1>
+
+                <p>
+                    Access the SPORTING administration portal to
+                    manage event applications, participants,
+                    sporting events and contact enquiries from
+                    one central dashboard.
+                </p>
+
+
+                <div class="admin-features">
+
+                    <div class="admin-feature">
+
+                        <span class="feature-check">
+                            ✓
+                        </span>
+
+                        Manage event applications
+
+                    </div>
+
+
+                    <div class="admin-feature">
+
+                        <span class="feature-check">
+                            ✓
+                        </span>
+
+                        Manage participant registrations
+
+                    </div>
+
+
+                    <div class="admin-feature">
+
+                        <span class="feature-check">
+                            ✓
+                        </span>
+
+                        Create and manage sporting events
+
+                    </div>
+
+
+                    <div class="admin-feature">
+
+                        <span class="feature-check">
+                            ✓
+                        </span>
+
+                        Review contact enquiries
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 LOGIN CARD
+            ================================================= -->
+
+            <section class="login-card">
+
+                <div class="card-top">
+
+                    <div class="lock-icon">
+                        🔐
+                    </div>
+
+                    <h2>
+                        Admin Login
+                    </h2>
+
+                    <p>
+                        Authorized SPORTING administrators only
+                    </p>
+
+                </div>
+
+
+                <form
+                    id="adminLoginForm"
+                    autocomplete="on"
+                    novalidate
+                >
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <span class="input-icon">
+                                ✉
+                            </span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter admin email"
+                                autocomplete="username"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <span class="input-icon">
+                                🔑
+                            </span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter admin password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="passwordToggle"
+                                aria-label="Show password"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOGIN -->
+
+                    <button
+                        type="submit"
+                        class="login-btn"
+                        id="loginBtn"
+                    >
+                        Sign In to Dashboard →
+                    </button>
+
+
+                    <!-- MESSAGE -->
+
+                    <div
+                        class="login-message"
+                        id="loginMessage"
+                        role="alert"
+                    ></div>
+
+
+                    <!-- SECURITY -->
+
+                    <div class="security-note">
+
+                        <span>🛡️</span>
+
+                        <div>
+                            <strong>Secure administration:</strong>
+                            Your login credentials are sent directly
+                            to the SPORTING backend over your configured
+                            API connection. Never share your admin
+                            password with anyone.
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer class="footer">
+
+        © 2026 SPORTING.
+        <span>Run. Play. Achieve.</span>
+        Administration Portal.
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const API_BASE =
+                    window.SPORTING_API_BASE_URL ||
+                    "http://localhost:5000";
+
+
+                const LOGIN_ENDPOINT =
+                    `${API_BASE}/api/auth/login`;
+
+
+                const form =
+                    document.getElementById(
+                        "adminLoginForm"
+                    );
+
+
+                const emailInput =
+                    document.getElementById(
+                        "email"
+                    );
+
+
+                const passwordInput =
+                    document.getElementById(
+                        "password"
+                    );
+
+
+                const passwordToggle =
+                    document.getElementById(
+                        "passwordToggle"
+                    );
+
+
+                const loginBtn =
+                    document.getElementById(
+                        "loginBtn"
+                    );
+
+
+                const loginMessage =
+                    document.getElementById(
+                        "loginMessage"
+                    );
+
+
+                /* =============================================
+                   ALREADY LOGGED IN
+                ============================================= */
+
+                const existingToken =
+                    localStorage.getItem(
+                        "SPORTING_ADMIN_TOKEN"
+                    );
+
+
+                if (existingToken) {
+
+                    try {
+
+                        const payload =
+                            JSON.parse(
+                                atob(
+                                    existingToken
+                                        .split(".")[1]
+                                        .replace(/-/g, "+")
+                                        .replace(/_/g, "/")
+                                )
+                            );
+
+
+                        const expiresAt =
+                            payload.exp
+                                ? payload.exp * 1000
+                                : 0;
+
+
+                        if (
+                            !expiresAt ||
+                            expiresAt > Date.now()
+                        ) {
+
+                            showMessage(
+                                "You are already logged in. Redirecting to the dashboard...",
+                                "success"
+                            );
+
+
+                            setTimeout(
+                                function () {
+
+                                    window.location.href =
+                                        "admin-dashboard.html";
+
+                                },
+                                900
+                            );
+
+                        } else {
+
+                            localStorage.removeItem(
+                                "SPORTING_ADMIN_TOKEN"
+                            );
+
+                            localStorage.removeItem(
+                                "SPORTING_ADMIN"
+                            );
+
+                        }
+
+                    } catch (error) {
+
+                        localStorage.removeItem(
+                            "SPORTING_ADMIN_TOKEN"
+                        );
+
+                        localStorage.removeItem(
+                            "SPORTING_ADMIN"
+                        );
+
+                    }
+
+                }
+
+
+                /* =============================================
+                   PASSWORD VISIBILITY
+                ============================================= */
+
+                if (passwordToggle) {
+
+                    passwordToggle.addEventListener(
+                        "click",
+                        function () {
+
+                            const isPassword =
+                                passwordInput.type ===
+                                "password";
+
+
+                            passwordInput.type =
+                                isPassword
+                                    ? "text"
+                                    : "password";
+
+
+                            passwordToggle.textContent =
+                                isPassword
+                                    ? "🙈"
+                                    : "👁";
+
+
+                            passwordToggle.setAttribute(
+                                "aria-label",
+                                isPassword
+                                    ? "Hide password"
+                                    : "Show password"
+                            );
+
+                        }
+                    );
+
+                }
+
+
+                /* =============================================
+                   SHOW MESSAGE
+                ============================================= */
+
+                function showMessage(
+                    message,
+                    type
+                ) {
+
+                    if (!loginMessage) {
+                        return;
+                    }
+
+
+                    loginMessage.textContent =
+                        message;
+
+
+                    loginMessage.className =
+                        `login-message show ${type}`;
+
+                }
+
+
+                /* =============================================
+                   CLEAR MESSAGE
+                ============================================= */
+
+                function clearMessage() {
+
+                    if (!loginMessage) {
+                        return;
+                    }
+
+
+                    loginMessage.textContent = "";
+
+                    loginMessage.className =
+                        "login-message";
+
+                }
+
+
+                /* =============================================
+                   RESPONSE PARSER
+                ============================================= */
+
+                async function parseResponse(
+                    response
+                ) {
+
+                    const contentType =
+                        response.headers.get(
+                            "content-type"
+                        ) || "";
+
+
+                    if (
+                        contentType.includes(
+                            "application/json"
+                        )
+                    ) {
+
+                        return await response.json();
+
+                    }
+
+
+                    const text =
+                        await response.text();
+
+
+                    return {
+                        success:
+                            response.ok,
+
+                        message:
+                            text ||
+                            "Unexpected server response."
+                    };
+
+                }
+
+
+                /* =============================================
+                   LOGIN
+                ============================================= */
+
+                if (form) {
+
+                    form.addEventListener(
+                        "submit",
+                        async function (event) {
+
+                            event.preventDefault();
+
+
+                            clearMessage();
+
+
+                            const email =
+                                emailInput.value
+                                    .trim()
+                                    .toLowerCase();
+
+
+                            const password =
+                                passwordInput.value;
+
+
+                            /* VALIDATION */
+
+                            if (!email) {
+
+                                showMessage(
+                                    "Please enter your admin email address.",
+                                    "error"
+                                );
+
+                                emailInput.focus();
+
+                                return;
+
+                            }
+
+
+                            if (
+                                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                                    .test(email)
+                            ) {
+
+                                showMessage(
+                                    "Please enter a valid email address.",
+                                    "error"
+                                );
+
+                                emailInput.focus();
+
+                                return;
+
+                            }
+
+
+                            if (!password) {
+
+                                showMessage(
+                                    "Please enter your password.",
+                                    "error"
+                                );
+
+                                passwordInput.focus();
+
+                                return;
+
+                            }
+
+
+                            /* LOADING */
+
+                            loginBtn.disabled = true;
+
+                            loginBtn.classList.add(
+                                "loading"
+                            );
+
+
+                            try {
+
+                                const response =
+                                    await fetch(
+                                        LOGIN_ENDPOINT,
+                                        {
+                                            method: "POST",
+
+                                            headers: {
+                                                "Content-Type":
+                                                    "application/json",
+
+                                                "Accept":
+                                                    "application/json"
+                                            },
+
+                                            body:
+                                                JSON.stringify({
+                                                    email,
+                                                    password
+                                                })
+                                        }
+                                    );
+
+
+                                const data =
+                                    await parseResponse(
+                                        response
+                                    );
+
+
+                                if (
+                                    !response.ok ||
+                                    data.success === false
+                                ) {
+
+                                    throw new Error(
+                                        data.message ||
+                                        data.error ||
+                                        "Login failed. Please check your credentials."
+                                    );
+
+                                }
+
+
+                                /* =================================
+                                   FIND TOKEN
+                                ================================= */
+
+                                const token =
+                                    data.token ||
+                                    data.accessToken ||
+                                    data.data?.token ||
+                                    data.data?.accessToken;
+
+
+                                if (!token) {
+
+                                    throw new Error(
+                                        "Login succeeded but the server did not return an authentication token."
+                                    );
+
+                                }
+
+
+                                /* =================================
+                                   ADMIN DATA
+                                ================================= */
+
+                                const admin =
+                                    data.admin ||
+                                    data.user ||
+                                    data.data?.admin ||
+                                    data.data?.user ||
+                                    {};
+
+
+                                /* =================================
+                                   SAVE AUTH
+                                ================================= */
+
+                                localStorage.setItem(
+                                    "SPORTING_ADMIN_TOKEN",
+                                    token
+                                );
+
+
+                                localStorage.setItem(
+                                    "SPORTING_ADMIN",
+                                    JSON.stringify(admin)
+                                );
+
+
+                                localStorage.setItem(
+                                    "SPORTING_ADMIN_LOGIN_TIME",
+                                    new Date().toISOString()
+                                );
+
+
+                                showMessage(
+                                    "Login successful. Opening admin dashboard...",
+                                    "success"
+                                );
+
+
+                                loginBtn.textContent =
+                                    "Login Successful ✓";
+
+
+                                /* =================================
+                                   REDIRECT
+                                ================================= */
+
+                                setTimeout(
+                                    function () {
+
+                                        window.location.href =
+                                            "admin-dashboard.html";
+
+                                    },
+                                    700
+                                );
+
+
+                            } catch (error) {
+
+                                console.error(
+                                    "SPORTING admin login error:",
+                                    error
+                                );
+
+
+                                let message =
+                                    error.message ||
+                                    "Unable to connect to the server.";
+
+
+                                if (
+                                    error.name ===
+                                    "TypeError"
+                                ) {
+
+                                    message =
+                                        "Unable to connect to the SPORTING backend. Make sure the backend server is running on port 5000.";
+
+                                }
+
+
+                                showMessage(
+                                    message,
+                                    "error"
+                                );
+
+
+                                loginBtn.disabled =
+                                    false;
+
+                                loginBtn.classList.remove(
+                                    "loading"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+
+
+                /* =============================================
+                   ENTER KEY
+                ============================================= */
+
+                [emailInput, passwordInput]
+                    .forEach(
+                        function (input) {
+
+                            if (!input) {
+                                return;
+                            }
+
+
+                            input.addEventListener(
+                                "keydown",
+                                function (event) {
+
+                                    if (
+                                        event.key ===
+                                        "Enter"
+                                    ) {
+
+                                        form.requestSubmit();
+
+                                    }
+
+                                }
+                            );
+
+                        }
+                    );
+
+            });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,2707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SPORTING | Run. Play. Achieve.</title>
+
+    <meta
+        name="description"
+        content="SPORTING - Professional marathon, running and sports event management. Run. Play. Achieve."
+    >
+
+    <meta name="theme-color" content="#07110d">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        /* =========================================================
+           SPORTING - HOMEPAGE
+           Complete index.html
+        ========================================================= */
+
+        :root {
+            --bg: #07110d;
+            --bg-light: #0c1914;
+            --card: #101f19;
+            --card-2: #13261f;
+
+            --green: #b7ff3c;
+            --green-dark: #7db51d;
+
+            --white: #ffffff;
+            --muted: #a9b5af;
+
+            --border: rgba(183, 255, 60, 0.16);
+
+            --shadow:
+                0 20px 60px rgba(0, 0, 0, 0.35);
+
+            --radius: 18px;
+            --container: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        .container {
+            width: min(92%, var(--container));
+            margin: auto;
+        }
+
+        /* =========================================================
+           TOP BAR
+        ========================================================= */
+
+        .topbar {
+            background: var(--green);
+            color: #08100b;
+            min-height: 34px;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .topbar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .topbar-left,
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        .navbar {
+            position: absolute;
+            top: 34px;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            padding: 20px 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.75),
+                rgba(0, 0, 0, 0)
+            );
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 34px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            background: var(--green);
+            color: #07110d;
+            clip-path: polygon(
+                50% 0%,
+                91% 24%,
+                91% 76%,
+                50% 100%,
+                9% 76%,
+                9% 24%
+            );
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 0;
+            height: 2px;
+            background: var(--green);
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-apply {
+            padding: 12px 20px;
+            border-radius: 8px;
+            background: var(--green);
+            color: #07110d !important;
+            font-weight: 800 !important;
+        }
+
+        .nav-apply:hover {
+            color: #07110d !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-apply::after {
+            display: none;
+        }
+
+        .menu-btn {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           HERO SLIDER
+        ========================================================= */
+
+        .hero {
+            position: relative;
+            height: min(780px, 92vh);
+            min-height: 620px;
+            overflow: hidden;
+            background: #050b08;
+        }
+
+        .slides {
+            position: absolute;
+            inset: 0;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(100%);
+            transition:
+                transform 0.85s cubic-bezier(0.77, 0, 0.175, 1),
+                opacity 0.85s ease,
+                visibility 0.85s;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            z-index: 2;
+        }
+
+        .slide.previous {
+            opacity: 0;
+            visibility: visible;
+            transform: translateX(-100%);
+            z-index: 1;
+        }
+
+        .slide-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(2, 8, 5, 0.9) 0%,
+                    rgba(2, 8, 5, 0.68) 38%,
+                    rgba(2, 8, 5, 0.2) 75%,
+                    rgba(2, 8, 5, 0.5) 100%
+                ),
+                linear-gradient(
+                    0deg,
+                    rgba(2, 8, 5, 0.9) 0%,
+                    transparent 45%
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 720px;
+            padding-top: 70px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 38px;
+            height: 3px;
+            background: var(--green);
+        }
+
+        .hero h1 {
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: clamp(64px, 9vw, 118px);
+            line-height: 0.84;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero-description {
+            max-width: 580px;
+            color: #d8dedb;
+            font-size: 17px;
+            line-height: 1.75;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 0 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 800;
+            transition: 0.25s;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: #07110d;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(183, 255, 60, 0.2);
+        }
+
+        .btn-outline {
+            border-color: rgba(255, 255, 255, 0.35);
+            color: white;
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        /* Slider controls */
+
+        .slider-controls {
+            position: absolute;
+            z-index: 10;
+            bottom: 42px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(92%, var(--container));
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .slide-counter {
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .slide-counter span {
+            color: var(--green);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 7px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 24px;
+            height: 4px;
+            border: 0;
+            background: rgba(255, 255, 255, 0.35);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            width: 45px;
+            background: var(--green);
+        }
+
+        .scroll-label {
+            position: absolute;
+            z-index: 10;
+            right: 25px;
+            bottom: 120px;
+            writing-mode: vertical-rl;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 10px;
+            color: #c5cfca;
+        }
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .stats {
+            position: relative;
+            z-index: 20;
+            margin-top: -1px;
+            background: var(--green);
+            color: #07110d;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat {
+            padding: 28px 25px;
+            border-right: 1px solid rgba(7, 17, 13, 0.15);
+        }
+
+        .stat:last-child {
+            border-right: 0;
+        }
+
+        .stat-number {
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 43px;
+            line-height: 1;
+            font-weight: 900;
+        }
+
+        .stat-label {
+            margin-top: 7px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+        }
+
+        /* =========================================================
+           GENERAL SECTIONS
+        ========================================================= */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: clamp(45px, 6vw, 72px);
+            line-height: 0.95;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .section-title span {
+            color: var(--green);
+        }
+
+        .section-description {
+            max-width: 650px;
+            color: var(--muted);
+            line-height: 1.8;
+            margin-top: 18px;
+        }
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about {
+            background:
+                radial-gradient(
+                    circle at 85% 30%,
+                    rgba(183, 255, 60, 0.06),
+                    transparent 30%
+                ),
+                var(--bg);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+            min-height: 480px;
+        }
+
+        .about-image {
+            width: 82%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            filter: saturate(0.8);
+        }
+
+        .about-card {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 240px;
+            padding: 28px;
+            border-radius: var(--radius);
+            background: var(--green);
+            color: #07110d;
+            box-shadow: var(--shadow);
+        }
+
+        .about-card strong {
+            display: block;
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 52px;
+            line-height: 1;
+            font-weight: 900;
+        }
+
+        .about-card span {
+            display: block;
+            margin-top: 8px;
+            font-size: 12px;
+            line-height: 1.5;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .about-content p {
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .check-list {
+            list-style: none;
+            display: grid;
+            gap: 14px;
+            margin: 26px 0 30px;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #dfe7e3;
+            font-weight: 600;
+        }
+
+        .check {
+            width: 23px;
+            height: 23px;
+            flex: 0 0 23px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--green);
+            color: #07110d;
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        /* =========================================================
+           SPORTS
+        ========================================================= */
+
+        .sports {
+            background: #09150f;
+        }
+
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .sport-card {
+            position: relative;
+            height: 270px;
+            overflow: hidden;
+            border-radius: 14px;
+            background: var(--card);
+        }
+
+        .sport-card.large {
+            grid-column: span 2;
+        }
+
+        .sport-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .sport-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.9),
+                    rgba(0, 0, 0, 0.1)
+                );
+        }
+
+        .sport-card:hover .sport-image {
+            transform: scale(1.07);
+        }
+
+        .sport-info {
+            position: absolute;
+            z-index: 2;
+            left: 22px;
+            right: 22px;
+            bottom: 20px;
+        }
+
+        .sport-number {
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .sport-info h3 {
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 31px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        /* =========================================================
+           SERVICES
+        ========================================================= */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .service-card {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.035),
+                rgba(255, 255, 255, 0.01)
+            );
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(183, 255, 60, 0.5);
+            background: var(--card);
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 24px;
+            border-radius: 12px;
+            background: rgba(183, 255, 60, 0.1);
+            color: var(--green);
+            font-size: 24px;
+        }
+
+        .service-card h3 {
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 28px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           EVENTS
+        ========================================================= */
+
+        .events {
+            background: #09150f;
+        }
+
+        .events-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .event-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 170px 130px;
+            align-items: center;
+            gap: 25px;
+            padding: 22px 24px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.025);
+            transition: 0.25s;
+        }
+
+        .event-row:hover {
+            border-color: rgba(183, 255, 60, 0.45);
+            transform: translateX(5px);
+        }
+
+        .event-date {
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding-right: 20px;
+        }
+
+        .event-date strong {
+            display: block;
+            color: var(--green);
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 36px;
+            line-height: 1;
+        }
+
+        .event-date span {
+            color: var(--muted);
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        .event-name h3 {
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 28px;
+            text-transform: uppercase;
+        }
+
+        .event-name p {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .event-location {
+            color: #d5ddd9;
+            font-size: 13px;
+        }
+
+        .event-status {
+            justify-self: end;
+            padding: 7px 11px;
+            border-radius: 50px;
+            background: rgba(183, 255, 60, 0.1);
+            color: var(--green);
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta {
+            padding: 80px 0;
+        }
+
+        .cta-box {
+            position: relative;
+            overflow: hidden;
+            padding: 65px;
+            border-radius: 22px;
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(183, 255, 60, 0.95),
+                    rgba(142, 210, 42, 0.88)
+                );
+            color: #07110d;
+        }
+
+        .cta-box::after {
+            content: "SPORT";
+            position: absolute;
+            right: -40px;
+            bottom: -55px;
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 180px;
+            line-height: 1;
+            font-weight: 900;
+            opacity: 0.08;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+        }
+
+        .cta-tag {
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .cta h2 {
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: clamp(45px, 6vw, 75px);
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .cta .btn {
+            background: #07110d;
+            color: white;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: #040a07;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 70px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 50px;
+        }
+
+        .footer-brand p {
+            max-width: 360px;
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .footer-heading {
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 22px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--green);
+        }
+
+        .footer-bottom {
+            padding-top: 22px;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            color: #68756f;
+            font-size: 12px;
+        }
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: min(320px, 85%);
+                height: 100vh;
+                padding: 100px 30px 30px;
+                background: #07110d;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+                transition: 0.35s;
+                box-shadow: -20px 0 50px rgba(0, 0, 0, 0.4);
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .menu-btn {
+                display: block;
+                position: relative;
+                z-index: 100;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(2) {
+                border-right: 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .sports-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .event-row {
+                grid-template-columns: 80px 1fr 100px;
+            }
+
+            .event-location {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .topbar {
+                display: none;
+            }
+
+            .navbar {
+                top: 0;
+                padding: 14px 0;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            .logo-mark {
+                width: 36px;
+                height: 36px;
+            }
+
+            .hero {
+                min-height: 650px;
+                height: 90vh;
+            }
+
+            .hero-text {
+                padding-top: 80px;
+            }
+
+            .hero h1 {
+                font-size: 65px;
+                letter-spacing: -1px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+                line-height: 1.65;
+            }
+
+            .slider-controls {
+                bottom: 25px;
+            }
+
+            .scroll-label {
+                display: none;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat {
+                padding: 22px 14px;
+            }
+
+            .stat-number {
+                font-size: 34px;
+            }
+
+            .stat-label {
+                font-size: 9px;
+            }
+
+            .about-visual {
+                min-height: 360px;
+            }
+
+            .about-image {
+                width: 88%;
+                height: 330px;
+            }
+
+            .about-card {
+                width: 170px;
+                padding: 20px;
+            }
+
+            .about-card strong {
+                font-size: 38px;
+            }
+
+            .sports-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sport-card,
+            .sport-card.large {
+                grid-column: span 1;
+                height: 260px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .event-row {
+                grid-template-columns: 65px 1fr;
+                gap: 15px;
+            }
+
+            .event-status {
+                display: none;
+            }
+
+            .cta-box {
+                padding: 40px 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         TOP BAR
+    ========================================================== -->
+
+    <div class="topbar">
+        <div class="container topbar-inner">
+
+            <div class="topbar-left">
+                <span>🏃 Professional Sports Event Management</span>
+            </div>
+
+            <div class="topbar-right">
+                <span>📧 singhpratik0143@gmail.com</span>
+                <span>🇮🇳 India</span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <header class="navbar">
+
+        <div class="container nav-inner">
+
+            <a href="index.html" class="logo">
+                <span class="logo-mark">S</span>
+                SPORTING
+            </a>
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="frontend/pages/about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="frontend/pages/services.html">Services</a>
+                </li>
+
+                <li>
+                    <a href="frontend/pages/sports.html">Sports</a>
+                </li>
+
+                <li>
+                    <a href="frontend/pages/events.html">Events</a>
+                </li>
+
+                <li>
+                    <a href="frontend/pages/contact.html">Contact</a>
+                </li>
+
+                <li>
+                    <a
+                        href="frontend/pages/apply.html"
+                        class="nav-apply"
+                    >
+                        APPLY NOW
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         HERO / 10 SLIDE BANNER
+    ========================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="slides">
+
+                <!-- Slide 1 -->
+                <div class="slide active">
+
+                    <img
+                        class="slide-image"
+                        src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=2000&q=85"
+                        alt="Marathon runners"
+                    >
+
+                    <div class="container hero-content">
+
+                        <div class="hero-text">
+
+                            <div class="eyebrow">
+                                Marathon & Running
+                            </div>
+
+                            <h1>
+                                Run.<br>
+                                <span>Play.</span><br>
+                                Achieve.
+                            </h1>
+
+                            <p class="hero-description">
+                                We create professionally managed sports
+                                experiences built around performance,
+                                participation and unforgettable moments.
+                            </p>
+
+                            <div class="hero-buttons">
+
+                                <a
+                                    href="frontend/pages/apply.html"
+                                    class="btn btn-primary"
+                                >
+                                    ORGANIZE AN EVENT
+                                </a>
+
+                                <a
+                                    href="frontend/pages/events.html"
+                                    class="btn btn-outline"
+                                >
+                                    EXPLORE EVENTS
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Slide 2 -->
+                <div class="slide">
+
+                    <img
+                        class="slide-image"
+                        src="https://images.unsplash.com/photo-1530137073523-3c2d1b1f7c18?auto=format&fit=crop&w=2000&q=85"
+                        alt="Running event"
+                    >
+
+                    <div class="container hero-content">
+
+                        <div class="hero-text">
+
+                            <div class="eyebrow">
+                                Race Day Excellence
+                            </div>
+
+                            <h1>
+                                Chase<br>
+                                The<br>
+                                <span>Finish.</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                From route planning to finish-line
+                                operations, SPORTING handles every
+                                critical detail.
+                            </p>
+
+                            <div class="hero-buttons">
+
+                                <a
+                                    href="frontend/pages/services.html"
+                                    class="btn btn-primary"
+                                >
+                                    OUR SERVICES
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Slide 3 -->
+                <div class="slide">
+
+                    <img
+                        class="slide-image"
+                        src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=2000&q=85"
+                        alt="Athletics competition"
+                    >
+
+                    <div class="container hero-content">
+
+                        <div class="hero-text">
+
+                            <div class="eyebrow">
+                                Athletics
+                            </div>
+
+                            <h1>
+                                Built<br>
+                                For<br>
+                                <span>Speed.</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                Professional event execution for athletes,
+                                schools, colleges and competitive sporting
+                                communities.
+                            </p>
+
+                            <div class="hero-buttons">
+
+                                <a
+                                    href="frontend/pages/sports.html"
+                                    class="btn btn-primary"
+                                >
+                                    VIEW SPORTS
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Slide 4 -->
+                <div class="slide">
+
+                    <img
+                        class="slide-image"
+                        src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=2000&q=85"
+                        alt="Basketball game"
+                    >
+
+                    <div class="container hero-content">
+
+                        <div class="hero-text">
+
+                            <div class="eyebrow">
+                                Basketball
+                            </div>
+
+                            <h1>
+                                Play<br>
+                                With<br>
+                                <span>Purpose.</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                Tournament planning, venue management,
+                                officials, scheduling and complete event
+                                support.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Slide 5 -->
+                <div class="slide">
+
+                    <img
+                        class="slide-image"
+                        src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=2000&q=85"
+                        alt="Football match"
+                    >
+
+                    <div class="container hero-content">
+
+                        <div class="hero-text">
+
+                            <div class="eyebrow">
+                                Football
+                            </div>
+
+                            <h1>
+                                One<br>
+                                Team.<br>
+                                <span>One Goal.</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                Competitive football tournaments designed
+                                for smooth scheduling and great participant
+                                experiences.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Slide 6 -->
+                <div class="slide">
+
+                    <img
+                        class="slide-image"
+                        src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=2000&q=85"
+                        alt="Cycling event"
+                    >
+
+                    <div class="container hero-content">
+
+                        <div class="hero-text">
+
+                            <div class="eyebrow">
+                                Cycling
+                            </div>
+
+                            <h1>
+                                Push<br>
+                                Your<br>
+                                <span>Limits.</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                Safe, organized cycling events with route
+                                coordination, support systems and event
+                                operations.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Slide 7 -->
+                <div class="slide">
+
+                    <img
+                        class="slide-image"
+                        src="https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=2000&q=85"
+                        alt="Sports competition"
+                    >
+
+                    <div class="container hero-content">
+
+                        <div class="hero-text">
+
+                            <div class="eyebrow">
+                                Sports Events
+                            </div>
+
+                            <h1>
+                                Bigger<br>
+                                Better.<br>
+                                <span>Stronger.</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                Whether it is a community event or a large
+                                tournament, SPORTING brings structure,
+                                energy and professionalism.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Slide 8 -->
+                <div class="slide">
+
+                    <img
+                        class="slide-image"
+                        src="https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?auto=format&fit=crop&w=2000&q=85"
+                        alt="Sports stadium"
+                    >
+
+                    <div class="container hero-content">
+
+                        <div class="hero-text">
+
+                            <div class="eyebrow">
+                                Complete Management
+                            </div>
+
+                            <h1>
+                                Your<br>
+                                Event.<br>
+                                <span>Our Mission.</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                Planning, logistics, facilities, medical
+                                support, security and participant
+                                management under one roof.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Slide 9 -->
+                <div class="slide">
+
+                    <img
+                        class="slide-image"
+                        src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=2000&q=85"
+                        alt="Sports training"
+                    >
+
+                    <div class="container hero-content">
+
+                        <div class="hero-text">
+
+                            <div class="eyebrow">
+                                Performance
+                            </div>
+
+                            <h1>
+                                Train.<br>
+                                Compete.<br>
+                                <span>Win.</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                We build sporting experiences that motivate
+                                participants and create lasting memories.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Slide 10 -->
+                <div class="slide">
+
+                    <img
+                        class="slide-image"
+                        src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=2000&q=85"
+                        alt="Marathon finish"
+                    >
+
+                    <div class="container hero-content">
+
+                        <div class="hero-text">
+
+                            <div class="eyebrow">
+                                SPORTING
+                            </div>
+
+                            <h1>
+                                Make<br>
+                                Every<br>
+                                <span>Moment Count.</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                Your next sporting event starts here.
+                                Run. Play. Achieve.
+                            </p>
+
+                            <div class="hero-buttons">
+
+                                <a
+                                    href="frontend/pages/apply.html"
+                                    class="btn btn-primary"
+                                >
+                                    START YOUR EVENT
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Slider controls -->
+
+            <div class="slider-controls">
+
+                <div class="slide-counter">
+                    <span id="currentSlide">01</span>
+                    / 10
+                </div>
+
+                <div
+                    class="slider-dots"
+                    id="sliderDots"
+                >
+                </div>
+
+            </div>
+
+            <div class="scroll-label">
+                Scroll to explore
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             STATS
+        ====================================================== -->
+
+        <div class="stats">
+
+            <div class="container stats-grid">
+
+                <div class="stat">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">
+                        Sports Categories
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-number">360°</div>
+                    <div class="stat-label">
+                        Event Management
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">
+                        Participant Focus
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">
+                        Complete Solution
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section class="about">
+
+            <div class="container about-grid">
+
+                <div class="about-visual">
+
+                    <img
+                        class="about-image"
+                        src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&q=85"
+                        alt="SPORTING marathon"
+                    >
+
+                    <div class="about-card">
+
+                        <strong>RUN</strong>
+
+                        <span>
+                            Designed for people who refuse to stop.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-content">
+
+                    <div class="section-tag">
+                        Who We Are
+                    </div>
+
+                    <h2 class="section-title">
+                        We Build<br>
+                        <span>Sporting Moments.</span>
+                    </h2>
+
+                    <p>
+                        SPORTING is a professional sports event management
+                        company focused on creating organized, exciting and
+                        memorable sporting experiences.
+                    </p>
+
+                    <p>
+                        From marathon and running events to tournaments,
+                        school competitions and corporate sports days,
+                        we manage the details so participants can focus
+                        on the game.
+                    </p>
+
+                    <ul class="check-list">
+
+                        <li>
+                            <span class="check">✓</span>
+                            Professional event planning
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Complete logistics management
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Participant-focused execution
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Medical and security support
+                        </li>
+
+                    </ul>
+
+                    <a
+                        href="frontend/pages/about.html"
+                        class="btn btn-primary"
+                    >
+                        MORE ABOUT SPORTING
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SPORTS
+        ====================================================== -->
+
+        <section class="sports">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-tag">
+                        What We Cover
+                    </div>
+
+                    <h2 class="section-title">
+                        <span>Sports</span> Without Limits
+                    </h2>
+
+                    <p class="section-description">
+                        From endurance races to competitive tournaments,
+                        our event solutions are designed for a wide range
+                        of sports.
+                    </p>
+
+                </div>
+
+
+                <div class="sports-grid">
+
+                    <a
+                        href="frontend/pages/sports.html"
+                        class="sport-card large"
+                    >
+
+                        <img
+                            class="sport-image"
+                            src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&q=85"
+                            alt="Marathon"
+                        >
+
+                        <div class="sport-info">
+
+                            <div class="sport-number">
+                                01
+                            </div>
+
+                            <h3>
+                                Marathon & Running
+                            </h3>
+
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="frontend/pages/sports.html"
+                        class="sport-card"
+                    >
+
+                        <img
+                            class="sport-image"
+                            src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=85"
+                            alt="Football"
+                        >
+
+                        <div class="sport-info">
+
+                            <div class="sport-number">
+                                02
+                            </div>
+
+                            <h3>
+                                Football
+                            </h3>
+
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="frontend/pages/sports.html"
+                        class="sport-card"
+                    >
+
+                        <img
+                            class="sport-image"
+                            src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=85"
+                            alt="Basketball"
+                        >
+
+                        <div class="sport-info">
+
+                            <div class="sport-number">
+                                03
+                            </div>
+
+                            <h3>
+                                Basketball
+                            </h3>
+
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="frontend/pages/sports.html"
+                        class="sport-card"
+                    >
+
+                        <img
+                            class="sport-image"
+                            src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=900&q=85"
+                            alt="Cricket"
+                        >
+
+                        <div class="sport-info">
+
+                            <div class="sport-number">
+                                04
+                            </div>
+
+                            <h3>
+                                Cricket
+                            </h3>
+
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="frontend/pages/sports.html"
+                        class="sport-card large"
+                    >
+
+                        <img
+                            class="sport-image"
+                            src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=1200&q=85"
+                            alt="Cycling"
+                        >
+
+                        <div class="sport-info">
+
+                            <div class="sport-number">
+                                05
+                            </div>
+
+                            <h3>
+                                Cycling & Athletics
+                            </h3>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SERVICES
+        ====================================================== -->
+
+        <section class="services">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-tag">
+                        Our Expertise
+                    </div>
+
+                    <h2 class="section-title">
+                        Complete Event<br>
+                        <span>Solutions.</span>
+                    </h2>
+
+                    <p class="section-description">
+                        Everything you need to plan, organize and execute
+                        a successful sports event.
+                    </p>
+
+                </div>
+
+
+                <div class="services-grid">
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            🏃
+                        </div>
+
+                        <h3>
+                            Marathon & Running
+                        </h3>
+
+                        <p>
+                            End-to-end marathon and running event planning,
+                            route coordination and participant management.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            🏆
+                        </div>
+
+                        <h3>
+                            Tournaments
+                        </h3>
+
+                        <p>
+                            Cricket, football, basketball and other
+                            tournament planning with professional operations.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            🎓
+                        </div>
+
+                        <h3>
+                            School & College
+                        </h3>
+
+                        <p>
+                            Structured sports competitions for schools,
+                            colleges and educational institutions.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            🏢
+                        </div>
+
+                        <h3>
+                            Corporate Sports
+                        </h3>
+
+                        <p>
+                            Team-building sports events and competitions
+                            designed for corporate organizations.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            🏥
+                        </div>
+
+                        <h3>
+                            Medical Support
+                        </h3>
+
+                        <p>
+                            First-aid and event medical support planning
+                            for participant safety and event readiness.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            🛡️
+                        </div>
+
+                        <h3>
+                            Security & Crowd
+                        </h3>
+
+                        <p>
+                            Crowd-flow planning, security coordination and
+                            organized venue management.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div style="text-align:center; margin-top:35px;">
+
+                    <a
+                        href="frontend/pages/services.html"
+                        class="btn btn-outline"
+                    >
+                        VIEW ALL SERVICES
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EVENTS
+        ====================================================== -->
+
+        <section class="events">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-tag">
+                        Get Involved
+                    </div>
+
+                    <h2 class="section-title">
+                        Upcoming <span>Events</span>
+                    </h2>
+
+                    <p class="section-description">
+                        Discover upcoming sporting experiences and register
+                        when participant registration opens.
+                    </p>
+
+                </div>
+
+
+                <div class="events-list">
+
+                    <div class="event-row">
+
+                        <div class="event-date">
+                            <strong>01</strong>
+                            <span>MAR</span>
+                        </div>
+
+                        <div class="event-name">
+
+                            <h3>
+                                SPORTING City Marathon
+                            </h3>
+
+                            <p>
+                                Full Marathon • Half Marathon • 10K
+                            </p>
+
+                        </div>
+
+                        <div class="event-location">
+                            📍 India
+                        </div>
+
+                        <div class="event-status">
+                            Upcoming
+                        </div>
+
+                    </div>
+
+
+                    <div class="event-row">
+
+                        <div class="event-date">
+                            <strong>18</strong>
+                            <span>APR</span>
+                        </div>
+
+                        <div class="event-name">
+
+                            <h3>
+                                SPORTING Cricket Cup
+                            </h3>
+
+                            <p>
+                                Competitive Cricket Tournament
+                            </p>
+
+                        </div>
+
+                        <div class="event-location">
+                            📍 India
+                        </div>
+
+                        <div class="event-status">
+                            Coming Soon
+                        </div>
+
+                    </div>
+
+
+                    <div class="event-row">
+
+                        <div class="event-date">
+                            <strong>12</strong>
+                            <span>MAY</span>
+                        </div>
+
+                        <div class="event-name">
+
+                            <h3>
+                                Inter-College Sports Meet
+                            </h3>
+
+                            <p>
+                                Athletics • Football • Basketball
+                            </p>
+
+                        </div>
+
+                        <div class="event-location">
+                            📍 India
+                        </div>
+
+                        <div class="event-status">
+                            Planned
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div style="text-align:center; margin-top:35px;">
+
+                    <a
+                        href="frontend/pages/events.html"
+                        class="btn btn-primary"
+                    >
+                        VIEW ALL EVENTS
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CTA
+        ====================================================== -->
+
+        <section class="cta">
+
+            <div class="container">
+
+                <div class="cta-box">
+
+                    <div class="cta-content">
+
+                        <div class="cta-tag">
+                            Ready to make it happen?
+                        </div>
+
+                        <h2>
+                            Your Event.<br>
+                            Our Expertise.
+                        </h2>
+
+                        <p>
+                            Planning a marathon, tournament, school sports
+                            competition or corporate event? Tell us what
+                            you need and our team can help turn the idea
+                            into a professionally managed sporting event.
+                        </p>
+
+                        <a
+                            href="frontend/pages/apply.html"
+                            class="btn"
+                        >
+                            START YOUR APPLICATION
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+
+                    <a href="index.html" class="logo">
+                        <span class="logo-mark">S</span>
+                        SPORTING
+                    </a>
+
+                    <p>
+                        Professional sports event management built around
+                        participation, performance and unforgettable
+                        sporting experiences.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="footer-heading">
+                        Company
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="frontend/pages/about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="frontend/pages/services.html">
+                                Services
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="frontend/pages/events.html">
+                                Events
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="frontend/pages/contact.html">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="footer-heading">
+                        Sports
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="frontend/pages/sports.html">
+                                Marathon
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="frontend/pages/sports.html">
+                                Cricket
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="frontend/pages/sports.html">
+                                Football
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="frontend/pages/sports.html">
+                                Basketball
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="footer-heading">
+                        Get Started
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="frontend/pages/apply.html">
+                                Organize an Event
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="frontend/pages/register.html">
+                                Participant Registration
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="frontend/pages/contact.html">
+                                Contact SPORTING
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="frontend/pages/admin-login.html">
+                                Admin
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 SPORTING. All rights reserved.
+                </span>
+
+                <span>
+                    Run. Play. Achieve.
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         10 slides
+         Auto change: every 2 seconds
+         Direction: right to left
+    ========================================================== -->
+
+    <script>
+
+        /* ---------------------------------------------------------
+           Mobile Menu
+        --------------------------------------------------------- */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        if (menuBtn && navLinks) {
+
+            menuBtn.addEventListener("click", function () {
+
+                navLinks.classList.toggle("open");
+
+                if (navLinks.classList.contains("open")) {
+                    menuBtn.innerHTML = "✕";
+                } else {
+                    menuBtn.innerHTML = "☰";
+                }
+
+            });
+
+
+            document.querySelectorAll(".nav-links a").forEach(link => {
+
+                link.addEventListener("click", function () {
+
+                    navLinks.classList.remove("open");
+                    menuBtn.innerHTML = "☰";
+
+                });
+
+            });
+
+        }
+
+
+        /* ---------------------------------------------------------
+           Slider
+        --------------------------------------------------------- */
+
+        const slides = document.querySelectorAll(".slide");
+        const dotsContainer = document.getElementById("sliderDots");
+        const currentSlide = document.getElementById("currentSlide");
+
+        let slideIndex = 0;
+        let sliderTimer;
+
+
+        /* Create dots */
+
+        slides.forEach((slide, index) => {
+
+            const dot = document.createElement("button");
+
+            dot.className = "dot";
+
+            dot.setAttribute(
+                "aria-label",
+                "Go to slide " + (index + 1)
+            );
+
+            if (index === 0) {
+                dot.classList.add("active");
+            }
+
+            dot.addEventListener("click", function () {
+                goToSlide(index);
+                restartSlider();
+            });
+
+            dotsContainer.appendChild(dot);
+
+        });
+
+
+        const dots = document.querySelectorAll(".dot");
+
+
+        /* Go to selected slide */
+
+        function goToSlide(nextIndex) {
+
+            if (!slides.length) {
+                return;
+            }
+
+            const oldIndex = slideIndex;
+
+            if (nextIndex === oldIndex) {
+                return;
+            }
+
+            slides[oldIndex].classList.remove("active");
+            slides[oldIndex].classList.add("previous");
+
+            slideIndex = nextIndex;
+
+            slides[slideIndex].classList.remove("previous");
+            slides[slideIndex].classList.add("active");
+
+
+            setTimeout(function () {
+
+                slides.forEach((slide, index) => {
+
+                    if (index !== slideIndex) {
+                        slide.classList.remove("active");
+                        slide.classList.remove("previous");
+                    }
+
+                });
+
+            }, 900);
+
+
+            dots.forEach((dot, index) => {
+
+                dot.classList.toggle(
+                    "active",
+                    index === slideIndex
+                );
+
+            });
+
+
+            currentSlide.textContent =
+                String(slideIndex + 1).padStart(2, "0");
+
+        }
+
+
+        /* Next slide */
+
+        function nextSlide() {
+
+            const nextIndex =
+                (slideIndex + 1) % slides.length;
+
+            goToSlide(nextIndex);
+
+        }
+
+
+        /* Start automatic slider */
+
+        function startSlider() {
+
+            sliderTimer = setInterval(
+                nextSlide,
+                2000
+            );
+
+        }
+
+
+        /* Restart timer after manual navigation */
+
+        function restartSlider() {
+
+            clearInterval(sliderTimer);
+
+            startSlider();
+
+        }
+
+
+        /* Start */
+
+        startSlider();
+
+
+        /* ---------------------------------------------------------
+           Pause slider when browser tab is hidden
+        --------------------------------------------------------- */
+
+        document.addEventListener(
+            "visibilitychange",
+            function () {
+
+                if (document.hidden) {
+
+                    clearInterval(sliderTimer);
+
+                } else {
+
+                    restartSlider();
+
+                }
+
+            }
+        );
+
+
+        /* ---------------------------------------------------------
+           Keyboard controls
+        --------------------------------------------------------- */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "ArrowRight") {
+
+                    nextSlide();
+                    restartSlider();
+
+                }
+
+                if (event.key === "ArrowLeft") {
+
+                    const previousIndex =
+                        (slideIndex - 1 + slides.length)
+                        % slides.length;
+
+                    goToSlide(previousIndex);
+                    restartSlider();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
